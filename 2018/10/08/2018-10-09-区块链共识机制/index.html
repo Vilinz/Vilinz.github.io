@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="区块链共识机制比特币历史背景起源于密码朋克，诞生于2009年，由中本聪提出，是目前为止（2018）市场总值第一的数字货币。有着匿名，分布式，不可篡改，一致性，全球化等特性。">
+<meta name="keywords" content="区块链">
+<meta property="og:type" content="article">
+<meta property="og:title" content="区块链共识机制">
+<meta property="og:url" content="http://yoursite.com/2018/10/08/2018-10-09-区块链共识机制/index.html">
+<meta property="og:site_name" content="Viliz">
+<meta property="og:description" content="区块链共识机制比特币历史背景起源于密码朋克，诞生于2009年，由中本聪提出，是目前为止（2018）市场总值第一的数字货币。有着匿名，分布式，不可篡改，一致性，全球化等特性。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://img-blog.csdn.net/20181010003849246?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2MTI0MTk0/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://github.com/VilinPlus/VilinPlus.github.io/blob/master/picture/Snipaste_2018-10-11_19-39-59.jpg?raw=true">
+<meta property="og:image" content="https://github.com/VilinPlus/VilinPlus.github.io/blob/master/picture/Snipaste_2018-10-11_19-40-40.jpg?raw=true">
+<meta property="og:image" content="https://github.com/VilinPlus/VilinPlus.github.io/blob/master/picture/Snipaste_2018-10-11_19-54-28.jpg?raw=true">
+<meta property="og:image" content="http://t11.baidu.com/it/u=171953398,986539138&fm=173&app=25&f=JPEG?w=475&h=216&s=1EAA742393DD51CA4EF5D1DE0100C0B1">
+<meta property="og:image" content="https://github.com/VilinPlus/VilinPlus.github.io/blob/master/picture/Snipaste_2018-10-11_20-21-09.jpg?raw=true">
+<meta property="og:image" content="https://github.com/VilinPlus/VilinPlus.github.io/blob/master/picture/Snipaste_2018-10-11_20-25-21.jpg?raw=true">
+<meta property="og:image" content="https://github.com/VilinPlus/VilinPlus.github.io/blob/master/picture/Snipaste_2018-10-11_20-29-43.jpg?raw=true">
+<meta property="og:updated_time" content="2019-03-27T15:31:55.397Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="区块链共识机制">
+<meta name="twitter:description" content="区块链共识机制比特币历史背景起源于密码朋克，诞生于2009年，由中本聪提出，是目前为止（2018）市场总值第一的数字货币。有着匿名，分布式，不可篡改，一致性，全球化等特性。">
+<meta name="twitter:image" content="https://img-blog.csdn.net/20181010003849246?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2MTI0MTk0/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2018/10/08/2018-10-09-区块链共识机制/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>区块链共识机制 | Viliz</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Viliz</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/08/2018-10-09-区块链共识机制/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Vilinz">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/my.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Viliz">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">区块链共识机制
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-10-08 00:00:00" itemprop="dateCreated datePublished" datetime="2018-10-08T00:00:00+08:00">2018-10-08</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-03-27 23:31:55" itemprop="dateModified" datetime="2019-03-27T23:31:55+08:00">2019-03-27</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/区块链/" itemprop="url" rel="index"><span itemprop="name">区块链</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="区块链共识机制"><a href="#区块链共识机制" class="headerlink" title="区块链共识机制"></a>区块链共识机制</h1><h3 id="比特币历史背景"><a href="#比特币历史背景" class="headerlink" title="比特币历史背景"></a>比特币历史背景</h3><p>起源于密码朋克，诞生于2009年，由中本聪提出，是目前为止（2018）市场总值第一的数字货币。有着匿名，分布式，不可篡改，一致性，全球化等特性。</p>
+<a id="more"></a>
+<p>比特币的基本服务：</p>
+<ul>
+<li><p>身份确认</p>
+<p>用户的地址携带用户的账号信息，是匿名的。</p>
+</li>
+<li><p>交易服务</p>
+<p>交易发生在用户之间，不经过第三方 机构（如银行）。</p>
+</li>
+<li><p>记录服务</p>
+<p>通过区块链技术在数以万计的用户间 存储交易信息，通过信息冗余及高额造假成本确 保安全 。</p>
+</li>
+<li><p>信任规则</p>
+<p>个人激励机制，全网分布式账本。</p>
+</li>
+</ul>
+<h3 id="比特币共识机制"><a href="#比特币共识机制" class="headerlink" title="比特币共识机制"></a>比特币共识机制</h3><p>比特币的共识机制就是从比特币提供的基本服务出发，对每种服务进行具体的讨论。</p>
+<ul>
+<li><p>比特币身份确认</p>
+<ul>
+<li><p>公钥和私钥</p>
+<p>身份确认用于表示自己账号，比特币使用公钥和私钥作为身份的确认的基本元素。每个账户可以被唯一一个公钥标识，简单地说，公钥相当于比特币的保险柜，而私钥相当于钥匙，私钥是账户拥有者持有。</p>
+</li>
+<li><p>私钥，公钥和地址之间的关系</p>
+<p>先通过随机数生成用户私钥，私钥经过不可逆的椭圆曲线加密算法生成公钥，公钥经过两次哈希生成公钥哈希，加上版本号进行一系列处理以后形成钱包的地址。  可以说，私钥决定了账户的所有权。私钥有密码学的基础，从公钥得到私钥几乎不可能。</p>
+<p><img src="https://img-blog.csdn.net/20181010003849246?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2MTI0MTk0/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt></p>
+</li>
+</ul>
+</li>
+<li><p>UTXO交易模型</p>
+<ul>
+<li><p>如何确认一笔交易的有效性</p>
+<ul>
+<li><p>所有权确认（私密-&gt;签名）</p>
+<p>仅仅有转账数额和转入钱包的地址无法确认交易的有效性，需要转出者提供相应的证明，唯一能证明的是私钥，所以带有私钥特性的签名对交易进行确认。</p>
+<p>一笔交易包含以下东西</p>
+<p><img src="https://github.com/VilinPlus/VilinPlus.github.io/blob/master/picture/Snipaste_2018-10-11_19-39-59.jpg?raw=true" alt></p>
+<p>所有权的确认通过特定算法进行</p>
+<p><img src="https://github.com/VilinPlus/VilinPlus.github.io/blob/master/picture/Snipaste_2018-10-11_19-40-40.jpg?raw=true" alt></p>
+</li>
+<li><p>有可以进行交易的资金</p>
+<p>比特 币使用了Unspent Transaction Output (UTXO) 来确保同一笔资金 只出现在一笔交易中。UTXO的特点就是每一收到的资金都存 在一个储蓄罐里，每次交易都 需要打碎一个或多个储蓄罐。也就是说，有输出的罐已经没有余额，只有那些没有输出的罐有余额，当进行一笔交易时，取一个或者多个罐，将其额度取出，进行完交易后将剩下的比特币放在一个新的罐中，并且这个罐没有输出。</p>
+<p><img src="https://github.com/VilinPlus/VilinPlus.github.io/blob/master/picture/Snipaste_2018-10-11_19-54-28.jpg?raw=true" alt></p>
+<ol>
+<li><p>UTXO基本模式：</p>
+<p>版本号+Input 未花费交易UTXO+Output输出地址及数量+锁定时间</p>
+</li>
+<li><p>安全性</p>
+<p>由于有所有权的确认，通过追溯，可以找到每个比特币的起源。</p>
+</li>
+<li><p>hs</p>
+</li>
+</ol>
+</li>
+<li><p>可用的资金与其他交易的资金不冲突</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>交易信息记录</p>
+<p>通过分布式数据库，每个节点都存储完整的账本。</p>
+<ul>
+<li><p>信任规则</p>
+<p>双花攻击就是一个用户用同一笔比特币完成两笔交易，这个攻击出现在交易进行确认之前。通过投票对交易进行确认并接入交易。</p>
+<p>多重身份攻击：当引入投票问题解决双花攻击，随之产生另外一个问题，那就是用户创建多重身份对交易进行投票。解决的方案是引入资源进行投票，投票的权利来源于用户具有的资源。</p>
+</li>
+</ul>
+</li>
+<li><p>工作量证明（POW)</p>
+<p>通过消耗资源解决一个问题 获得投票资格（即记账权）。</p>
+<p>记账权必须通过花费计算资 源来获得，比如说通过蛮力 解决一个问题；通过记账奖 励鼓励投入资源，即使一个用户有多个身份，但他所具有的计算资源决定了他的投票的公平性。</p>
+<p>挖矿就是投入计算资源来争夺记账权，记账权获得有一定的奖励，包括比特币奖励和交易的手续费，这个过程是通过付出大量的计算量来解决一个难题，谁先解决谁获得记账权，也就获得相应的奖励。整个争夺记账的过程就是挖矿的过程，也就是比特币发行的过程。那么问题来了，难题该如何设置呢？难题应该具有以下特点：不容易完成，容易验证，工作过程公平，具有随机性。</p>
+<p>为了更好地解释挖矿的过程，我们有必要理解一下区块链的特点：</p>
+<ul>
+<li><p>结构</p>
+<p><img src="http://t11.baidu.com/it/u=171953398,986539138&amp;fm=173&amp;app=25&amp;f=JPEG?w=475&amp;h=216&amp;s=1EAA742393DD51CA4EF5D1DE0100C0B1" alt></p>
+</li>
+<li><p>哈希函数</p>
+<p>哈希函数将任意长度的串转化为固定长度的串，并且串之间有一个字符不一样，那么得到的哈希值也完全不一样</p>
+<p><img src="https://github.com/VilinPlus/VilinPlus.github.io/blob/master/picture/Snipaste_2018-10-11_20-21-09.jpg?raw=true" alt></p>
+<p>具体的特点有：</p>
+<ul>
+<li>正向快速：给定明文和 hash 算法，在有限时间和有限资源内能计算出 hash 值</li>
+<li>输入敏感：原始输入信息修改一点信息，产生的 hash 值看起来应该都有很大不同</li>
+<li>逆向困难：给定特定hash 值，在有限时间内很难（基本不可能）逆推出明文</li>
+<li>冲突避免：很难找到两段内容不同的明文，使得它们的 hash 值一致（发生冲突</li>
+</ul>
+</li>
+<li><p>Merkle Tree</p>
+<p>通过哈希树的引入，使得区块链的数据传递没有那么庞大，交易得哈希不断往上哈希直到存在一个哈希值，这个哈希值就是区块链中存储的哈希值。</p>
+<p><img src="https://github.com/VilinPlus/VilinPlus.github.io/blob/master/picture/Snipaste_2018-10-11_20-25-21.jpg?raw=true" alt></p>
+</li>
+<li><p>挖矿过程</p>
+<p>参与者综合上一个区块的 Hash 值，上一个区块生成之后的新 的验证过的交易内容的Markle Root值，再加上猜测的一个随机数Nonce， 一起打包到一个候选新区块，让新区块的 Hash值小于比特币网络中给定的一 个数。这是一道面向全体矿工的“计算题”，这个数越小，计算出来就越难。 （基于Hash函数特性）。</p>
+<p>SHA(Markle Root+上一个区块Hash值+Nonce)&lt;某个数：挖矿成功！  “0000000000000f15673f1354”“0”的数目体现了挖矿难度。</p>
+<p>简单地说，挖矿就是在猜测Nonce的值，将任何一串数据输入到SHA256将得到 一个256bit的hash值，这个值必须小于或等于给出的特定值。每个区块的奖励最初是 50 个比特币，每隔 21 万个区块自动减半，即 4 年时间，最终在2140年比特币总量稳定在 2100 万个。因此，比特币是一种 通缩的货币。由于 Hash 难题在目前计算模型下需要大量的计算，这就保证在一段时间内，系统中只能 出现少数合法提案。反过来，能够提出合法提案，也证明提案者确实已经付出了一定的工作 量。这也保障了，如果有人尝试恶意破坏，需要付出大量的经济成</p>
+<p>比特币的一种发现方式就是通过挖矿。</p>
+<p><img src="https://github.com/VilinPlus/VilinPlus.github.io/blob/master/picture/Snipaste_2018-10-11_20-29-43.jpg?raw=true" alt></p>
+</li>
+<li><p>最长链机制</p>
+<p>如果有两个节点同时完成POW，这个时候会出现分链，解决方法是用户自定选择最长的链排队。但这样会存在51%攻击。</p>
+<p>设想这样一个现实场景：  Alice 和 Bob之间使用比特币完成了一杯咖啡的交易，Bob在收到Alice的转账通知 (交易提交)，就给 Alice提供了咖啡。  Alice不想支付这笔钱，在开始之前他把区块里的这笔交易改成Alice转给自己的一笔交易了(更改很容 易，只要把接收地址和签名改掉即可)。  Alice开始尝试用这个伪区块进行计算(计算正确后这个快会被加入主块中)，因为拥有51%的算力， Alice比别的节点更容易优先计算成功，导致一个伪造的区块加入了主链。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="POW机制应用与局限"><a href="#POW机制应用与局限" class="headerlink" title="POW机制应用与局限"></a>POW机制应用与局限</h3><ul>
+<li><p>局限</p>
+<ul>
+<li><p>矿池集中</p>
+</li>
+<li><p>自私挖矿</p>
+<p>也就是当自己挖出的链长度有绝对优势，先不公布。</p>
+</li>
+<li><p>计算资源浪费</p>
+<p>每年耗大量计算一个无用问题的计算量。</p>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/区块链/" rel="tag"># 区块链</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/08/2018-10-08-搜索策略之盲目搜索/" rel="next" title="搜索策略之盲目搜索">
+                <i class="fa fa-chevron-left"></i> 搜索策略之盲目搜索
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/08/2018-10-08-搜索策略之启发式搜索/" rel="prev" title="搜索策略之启发式搜索">
+                搜索策略之启发式搜索 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/my.jpg" alt="Vilinz">
+            
+              <p class="site-author-name" itemprop="name">Vilinz</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">分类</span>
+                  
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/vilinz" title="GitHub &rarr; https://github.com/vilinz" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="/1622070923@qq.com" title="E-Mail &rarr; 1622070923@qq.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#区块链共识机制"><span class="nav-number">1.</span> <span class="nav-text">区块链共识机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#比特币历史背景"><span class="nav-number">1.0.1.</span> <span class="nav-text">比特币历史背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#比特币共识机制"><span class="nav-number">1.0.2.</span> <span class="nav-text">比特币共识机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#POW机制应用与局限"><span class="nav-number">1.0.3.</span> <span class="nav-text">POW机制应用与局限</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Vilinz</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.0.1</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.1"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
