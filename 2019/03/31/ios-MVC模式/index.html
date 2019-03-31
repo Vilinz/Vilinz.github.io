@@ -98,18 +98,20 @@
 
 
 
-  <meta name="description" content="ios-MVC模式MVC的全称是Model-View-Control，是一种软件设计模式，该模式在ios开发中被使用的淋漓尽致，所以我们有必要深入理解这个设计模式。 Model模型对象处理模式当中的数据，封装了应用程序的数据，并定义操控和处理该数据的逻辑和运算。在该模式下可以进行数据的存储，编辑和删除，我们定义在这个对象上面的操作叫做业务逻辑。 ViewView管理的是可视层，管理信息的可视化显示">
+  <meta name="description" content="ios-MVC模式MVC的全称是Model-View-Control，是一种软件设计模式，该模式在ios开发中被使用的淋漓尽致，所以我们有必要深入理解这个设计模式。">
 <meta name="keywords" content="ios">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ios MVC模式">
 <meta property="og:url" content="http://yoursite.com/2019/03/31/ios-MVC模式/index.html">
 <meta property="og:site_name" content="Viliz">
-<meta property="og:description" content="ios-MVC模式MVC的全称是Model-View-Control，是一种软件设计模式，该模式在ios开发中被使用的淋漓尽致，所以我们有必要深入理解这个设计模式。 Model模型对象处理模式当中的数据，封装了应用程序的数据，并定义操控和处理该数据的逻辑和运算。在该模式下可以进行数据的存储，编辑和删除，我们定义在这个对象上面的操作叫做业务逻辑。 ViewView管理的是可视层，管理信息的可视化显示">
+<meta property="og:description" content="ios-MVC模式MVC的全称是Model-View-Control，是一种软件设计模式，该模式在ios开发中被使用的淋漓尽致，所以我们有必要深入理解这个设计模式。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-31T14:24:37.576Z">
+<meta property="og:image" content="http://yoursite.com/2019/03/31/ios-MVC模式/MVC.jpg">
+<meta property="og:updated_time" content="2019-03-31T15:56:31.756Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ios MVC模式">
-<meta name="twitter:description" content="ios-MVC模式MVC的全称是Model-View-Control，是一种软件设计模式，该模式在ios开发中被使用的淋漓尽致，所以我们有必要深入理解这个设计模式。 Model模型对象处理模式当中的数据，封装了应用程序的数据，并定义操控和处理该数据的逻辑和运算。在该模式下可以进行数据的存储，编辑和删除，我们定义在这个对象上面的操作叫做业务逻辑。 ViewView管理的是可视层，管理信息的可视化显示">
+<meta name="twitter:description" content="ios-MVC模式MVC的全称是Model-View-Control，是一种软件设计模式，该模式在ios开发中被使用的淋漓尽致，所以我们有必要深入理解这个设计模式。">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/31/ios-MVC模式/MVC.jpg">
 
 
 
@@ -369,7 +371,7 @@
                 
               
 
-              <time title="创建时间：2019-03-31 22:06:03 / 修改时间：22:24:37" itemprop="dateCreated datePublished" datetime="2019-03-31T22:06:03+08:00">2019-03-31</time>
+              <time title="创建时间：2019-03-31 22:27:54 / 修改时间：23:56:31" itemprop="dateCreated datePublished" datetime="2019-03-31T22:27:54+08:00">2019-03-31</time>
             
 
             
@@ -391,7 +393,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/编程语言/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/客户端开发/" itemprop="url" rel="index"><span itemprop="name">客户端开发</span></a></span>
 
                 
                 
@@ -434,9 +436,74 @@
 
       
         <h2 id="ios-MVC模式"><a href="#ios-MVC模式" class="headerlink" title="ios-MVC模式"></a>ios-MVC模式</h2><p>MVC的全称是Model-View-Control，是一种软件设计模式，该模式在ios开发中被使用的淋漓尽致，所以我们有必要深入理解这个设计模式。</p>
+<a id="more"></a>
 <h5 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h5><p>模型对象处理模式当中的数据，封装了应用程序的数据，并定义操控和处理该数据的逻辑和运算。在该模式下可以进行数据的存储，编辑和删除，我们定义在这个对象上面的操作叫做业务逻辑。</p>
 <h5 id="View"><a href="#View" class="headerlink" title="View"></a>View</h5><p>View管理的是可视层，管理信息的可视化显示。例如，UITableView以表格视图格式显示信息。</p>
 <h5 id="Controller"><a href="#Controller" class="headerlink" title="Controller"></a>Controller</h5><p>Controller是沟通Model和View之间的桥梁，用户与软件的交互实际上就是用户与数据的交互，也就是用户与Model之间的交互，但在MVC模式当中，我们不能直接对Model进行操作，View是用户直接操作的对象，然后通过Controller将View的动作传递到Model中，模型View的更新也是通过中间者Controller来传递到View中对视图进行更新，也就是Controller的作用就是将用户交互从视图（例如，点击）转换为要在模型中执行的适当动作。例如，用户点击视图中的删除按钮，控制器依次触发模型中的删除操作。之后，它还请求视图刷新自身以反映数据模型的更新。</p>
+<p><img src="/2019/03/31/ios-MVC模式/MVC.jpg" alt></p>
+<hr>
+<h2 id="Navigation-Controller使用"><a href="#Navigation-Controller使用" class="headerlink" title="Navigation Controller使用"></a>Navigation Controller使用</h2><p>最近除了听字节跳动老师来授课以外，自己也会上网找一些教程来进行学习，尤其是UI编程这一块，ios的UI编程与Android的UI编程有很大的区别。</p>
+<p>Android的UI编程是通过特定的界面编程语言来进行的·，也就是我们通过xml来定制自己的界面，这样很好地实现了逻辑代码与视图的分离。</p>
+<p>而ios的界面编程有点不同，其定制界面的代码与逻辑业务层的代码是结合在一起的，通过代码的阅读，自己也试着使用一下Navigation Controller。</p>
+<ul>
+<li><p>在AppDelegate中新建Navigation Controller并指定其为rootView，didFinishLaunchingWithOptions函数是App初始化渲染UI执行的函数，我们在这里指定rootView，然后进行渲染。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">@interface AppDelegate () &#123;</span><br><span class="line">    UINavigationController *_nav;</span><br><span class="line">&#125;</span><br><span class="line">...</span><br><span class="line">- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions &#123;</span><br><span class="line">    // Override point for customization after application launch.</span><br><span class="line">    self.window = [[UIWindow alloc]initWithFrame:UIScreen.mainScreen.bounds];</span><br><span class="line">    _nav = [[UINavigationController alloc] initWithRootViewController:[[ViewController alloc] init]];</span><br><span class="line">    self.window.rootViewController = _nav;</span><br><span class="line">    [self.window makeKeyAndVisible];</span><br><span class="line">    return YES;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>接着App渲染第一个View，我们在这里添加逻辑层代码以及UI层代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (void)viewDidLoad &#123;</span><br><span class="line">    [super viewDidLoad];</span><br><span class="line">    // Do any additional setup after loading the view, typically from a nib.</span><br><span class="line">    self.title = @&quot;Home&quot;;</span><br><span class="line">    self.view.backgroundColor = UIColor.whiteColor;</span><br><span class="line">    [self addElement];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在addElement中，我初始化了一些按钮，以及按钮的动作，点击按钮跳转到不同的View。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">- (void)addElement &#123;</span><br><span class="line">    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(20, 100, 300, 30)];</span><br><span class="line">    [button setTitle:@&quot;TableView&quot; forState:UIControlStateNormal];</span><br><span class="line">    [button setTitleColor:UIColor.blackColor forState:UIControlStateNormal];</span><br><span class="line">    button.titleLabel.textAlignment = NSTextAlignmentLeft;</span><br><span class="line">    [self.view addSubview:button];</span><br><span class="line">    [button addTarget:self action:@selector(gotoMyTableView) forControlEvents:UIControlEventTouchUpInside];</span><br><span class="line">    </span><br><span class="line">    UIButton *buttonWeb = [[UIButton alloc] initWithFrame:CGRectMake(20, 140, 300, 30)];</span><br><span class="line">    [buttonWeb setTitle:@&quot;Web&quot; forState:UIControlStateNormal];</span><br><span class="line">    [buttonWeb setTitleColor:UIColor.blackColor forState:UIControlStateNormal];</span><br><span class="line">    buttonWeb.titleLabel.textAlignment = NSTextAlignmentLeft;</span><br><span class="line">    [self.view addSubview:buttonWeb];</span><br><span class="line">    [buttonWeb addTarget:self action:@selector(gotoWeb) forControlEvents:UIControlEventTouchUpInside];</span><br><span class="line">    </span><br><span class="line">    UIButton *buttonSimpleView = [[UIButton alloc] initWithFrame:CGRectMake(20, 180, 300, 30)];</span><br><span class="line">    [buttonSimpleView  setTitle:@&quot;SimpleView &quot; forState:UIControlStateNormal];</span><br><span class="line">    [buttonSimpleView  setTitleColor:UIColor.blackColor forState:UIControlStateNormal];</span><br><span class="line">    buttonSimpleView .titleLabel.textAlignment = NSTextAlignmentLeft;</span><br><span class="line">    [self.view addSubview:buttonSimpleView ];</span><br><span class="line">    [buttonSimpleView  addTarget:self action:@selector(gotoSimpleView ) forControlEvents:UIControlEventTouchUpInside];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>在TableView中根据上周学习的自己定制一个可以加载的TableView，在Web中完成了Get和Post网络请求，在SimpleView完成简单的内置View，添加数据。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">- (void)gotoMyTableView &#123;</span><br><span class="line">    MyTableViewController *vc = [[MyTableViewController alloc] init];</span><br><span class="line">    [self.navigationController pushViewController:vc animated:YES];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)gotoWeb &#123;</span><br><span class="line">    WebViewController *vc = [[WebViewController alloc] init];</span><br><span class="line">    [self.navigationController pushViewController:vc animated:YES];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">-(void)gotoSimpleView &#123;</span><br><span class="line">    SimpleViewController *vc = [[SimpleViewController alloc] init];</span><br><span class="line">    [self.navigationController pushViewController:vc animated:YES];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在TableView中最重要的还是协议那几个必须实现的函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section；</span><br><span class="line">- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath</span><br><span class="line">- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>还有就是不要忘记数据的绑定</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tableView.delegate = self;</span><br><span class="line">tableView.dataSource = self;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h2 id="在TableView中添加Search-Bar"><a href="#在TableView中添加Search-Bar" class="headerlink" title="在TableView中添加Search Bar"></a>在TableView中添加Search Bar</h2><p>Search display controller可以使用搜索显示控制器来管理应用中的搜索。 搜索显示控制器管理搜索栏的显示和显示数据搜索结果的表格视图。当用户开始搜索时，搜索显示控制器将搜索界面叠加在原始视图上并显示搜索结果。 有趣的是，结果显示在由搜索显示控制器创建的表格视图中。</p>
+<ul>
+<li><p>UI设计</p>
+<p>直接在我们上面设计的基础上添加Search Bar and Search Display，加在Table View的上方。</p>
+</li>
+<li><p>Table View的数据绑定，实现两个简单的函数，仅仅为了测试使用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section</span><br><span class="line">&#123;</span><br><span class="line">    return [recipes count];</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath</span><br><span class="line">&#123;</span><br><span class="line">    static NSString *simpleTableIdentifier = @&quot;RecipeCell&quot;;</span><br><span class="line">    </span><br><span class="line">    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];</span><br><span class="line">    </span><br><span class="line">    if (cell == nil) &#123;</span><br><span class="line">        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    cell.textLabel.text = [recipes objectAtIndex:indexPath.row];</span><br><span class="line">    return cell;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>在逻辑层，我们要实现数据的搜索，我们这里采用的是关键字搜索。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope</span><br><span class="line">&#123;</span><br><span class="line">    NSPredicate *resultPredicate = [NSPredicate </span><br><span class="line">                                    predicateWithFormat:@&quot;SELF contains[cd] %@&quot;,</span><br><span class="line">                                    searchText];</span><br><span class="line">    </span><br><span class="line">    searchResults = [recipes filteredArrayUsingPredicate:resultPredicate];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>对search实现数据绑定，当搜索框中的内容变化的时候就会触发的函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">-(BOOL)searchDisplayController:(UISearchDisplayController *)controller </span><br><span class="line">shouldReloadTableForSearchString:(NSString *)searchString</span><br><span class="line">&#123;</span><br><span class="line">    [self filterContentForSearchText:searchString </span><br><span class="line">                               scope:[[self.searchDisplayController.searchBar scopeButtonTitles]</span><br><span class="line">                                      objectAtIndex:[self.searchDisplayController.searchBar</span><br><span class="line">                                                     selectedScopeButtonIndex]]];</span><br><span class="line">    </span><br><span class="line">    return YES;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>重写TableView的绑定函数，因为我们原TableView和Search Bar显示的内容共用同一个TableView，所以我们需要条件判断。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section</span><br><span class="line">&#123;</span><br><span class="line">    if (tableView == self.searchDisplayController.searchResultsTableView) &#123;</span><br><span class="line">        return [searchResults count];</span><br><span class="line"> </span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        return [recipes count];</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath</span><br><span class="line">&#123;</span><br><span class="line">    static NSString *simpleTableIdentifier = @&quot;RecipeCell&quot;;</span><br><span class="line">    </span><br><span class="line">    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];</span><br><span class="line">    </span><br><span class="line">    if (cell == nil) &#123;</span><br><span class="line">        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    if (tableView == self.searchDisplayController.searchResultsTableView) &#123;</span><br><span class="line">        cell.textLabel.text = [searchResults objectAtIndex:indexPath.row];</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        cell.textLabel.text = [recipes objectAtIndex:indexPath.row];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    return cell;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>  到现在，我们的搜索框可以正常工作了。</p>
+<hr>
+<h2 id="实验感想"><a href="#实验感想" class="headerlink" title="实验感想"></a>实验感想</h2><ul>
+<li>经过自己课后的琢磨，我开始渐渐进入状态了，这周自由掌握的时间，自己按照自己的想法进行了一些编程练习，感觉效果还是不错的，至少可以简单实现自己的需求。</li>
+<li>在第一周负责人说过对应项目需要定制的UI，我们还是用代码来实现，而不要用ios内置的可以拖动的面板进行UI的设计，我们从反面说明一下用拖动的·方式设计UI的坏处：<ul>
+<li>大部分的项目管理都是git，如果另外一个人改动了一点点UI，系统内部帮我们写好了xml文件，但此时git会提示有冲突，但我们很多时候不会去看xml文件，这时项目编译就会失败。</li>
+<li>系统为我们生成的文件有很多冗余的判断，用系统生成的东西不利于我们进行软件的优化，我们自己写德1话可以去除那些冗余的判断。</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
@@ -674,7 +741,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ios-MVC模式"><span class="nav-number">1.</span> <span class="nav-text">ios-MVC模式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Model"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">Model</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#View"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">View</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Controller"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">Controller</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ios-MVC模式"><span class="nav-number">1.</span> <span class="nav-text">ios-MVC模式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Model"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">Model</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#View"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">View</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Controller"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">Controller</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#Navigation-Controller使用"><span class="nav-number">2.</span> <span class="nav-text">Navigation Controller使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在TableView中添加Search-Bar"><span class="nav-number">3.</span> <span class="nav-text">在TableView中添加Search Bar</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验感想"><span class="nav-number">4.</span> <span class="nav-text">实验感想</span></a></li></div>
             
 
           </div>
