@@ -99,12 +99,12 @@
 
 
   <meta property="og:type" content="website">
-<meta property="og:title" content="Viliz">
+<meta property="og:title" content="Vilin">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Viliz">
+<meta property="og:site_name" content="Vilin">
 <meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Viliz">
+<meta name="twitter:title" content="Vilin">
 
 
 
@@ -122,7 +122,7 @@
   };
 </script>
 
-  <title>Viliz</title>
+  <title>Vilin</title>
   
 
 
@@ -182,7 +182,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Viliz</span>
+        <span class="site-title">Vilin</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -325,13 +325,13 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/01/CNN-torch/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Vilinz">
+      <meta itemprop="name" content="Vilin">
       <meta itemprop="description" content>
       <meta itemprop="image" content="/images/my.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Viliz">
+      <meta itemprop="name" content="Vilin">
     </span>
 
     
@@ -367,12 +367,24 @@
                 
               
 
-              <time title="创建时间：2019-04-01 10:27:40 / 修改时间：15:52:51" itemprop="dateCreated datePublished" datetime="2019-04-01T10:27:40+08:00">2019-04-01</time>
+              <time title="创建时间：2019-04-01 10:27:40" itemprop="dateCreated datePublished" datetime="2019-04-01T10:27:40+08:00">2019-04-01</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-04-03 00:18:17" itemprop="dateModified" datetime="2019-04-03T00:18:17+08:00">2019-04-03</time>
               
             
           </span>
@@ -425,51 +437,16 @@
 
       
         
+          <p>摘要：理解卷积基本概念，利用Pytorch搭建简单的卷积神经网络。</p>
+          <!--noindex-->
           
-            <h1 id="CNN"><a href="#CNN" class="headerlink" title="CNN"></a>CNN</h1><h2 id="卷积基本概念"><a href="#卷积基本概念" class="headerlink" title="卷积基本概念"></a>卷积基本概念</h2><p>当我们对一张二维的图像做卷积时,将卷积核沿着图像进行滑动乘加即可</p>
-<p><img src="/2019/04/01/CNN-torch/Snipaste_2019-04-01_11-12-18.jpg" alt></p>
-<p>在这里，输入是5*5*3的，channnel为3，padding是1，stride是2。</p>
-<p>channel：输入的通道，我们理解一个二维的w*h是一个channel，那么对于一幅彩色图像来说，其在第三维存在RGB三个通道。</p>
-<p>padding：padding的意思的往边界上补充0。</p>
-<p>stride：stride是指卷积核滑动的步长。</p>
-<p>pooling：常见的有两种池化的操作，分别是max和average，mex是取最大值，average是取平均值。</p>
-<p><img src="/2019/04/01/CNN-torch/Snipaste_2019-04-01_11-24-43.jpg" alt></p>
-<p>对于下图，其channel为3，5*5*3这个是卷积核，padding是0，stride默认是1，卷积得出的结果是24*24的矩阵</p>
-<p><img src="/2019/04/01/CNN-torch/Snipaste_2019-04-01_11-20-43.jpg" alt></p>
-<p>我们来看看更加复杂的情况，当有多个卷积核的时候，每个卷积核拆分出来进行卷积</p>
-<p><img src="/2019/04/01/CNN-torch/Snipaste_2019-04-01_11-22-26.jpg" alt></p>
-<p>下面我们来探究卷积的python实现，在二维单通道的情况下</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">convolution</span><span class="params">(img, kernel, padding=<span class="number">1</span>, stride=<span class="number">1</span>)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    img: input image with one channel</span></span><br><span class="line"><span class="string">    kernel: convolution kernel</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    </span><br><span class="line">    h, w = img.shape</span><br><span class="line">    kernel_size = kernel.shape[<span class="number">0</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># height and width of image with padding </span></span><br><span class="line">    ph, pw = h + <span class="number">2</span> * padding, w + <span class="number">2</span> * padding</span><br><span class="line">    padding_img = np.zeros((ph, pw))</span><br><span class="line">    padding_img[padding:h + padding, padding:w + padding] = img</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># height and width of output image</span></span><br><span class="line">    result_h = (h + <span class="number">2</span> * padding - kernel_size) // stride + <span class="number">1</span></span><br><span class="line">    result_w = (w + <span class="number">2</span> * padding - kernel_size) // stride + <span class="number">1</span></span><br><span class="line">    </span><br><span class="line">    result = np.zeros((result_h, result_w))</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># convolution</span></span><br><span class="line">    x, y = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, ph - kernel_size + <span class="number">1</span>, stride):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">0</span>, pw - kernel_size + <span class="number">1</span>, stride):</span><br><span class="line">            roi = padding_img[i:i+kernel_size, j:j+kernel_size]</span><br><span class="line">            result[x, y] = np.sum(roi * kernel)</span><br><span class="line">            y += <span class="number">1</span></span><br><span class="line">        y = <span class="number">0</span></span><br><span class="line">        x += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> result</span><br></pre></td></tr></table></figure>
-<p>但在现实当中，我们都是使用多通道的卷积，在多通道情况下，padding和stride都默认为1的情况下，卷积为</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">myconv2d</span><span class="params">(features, weights,  padding=<span class="number">0</span>, stride=<span class="number">1</span>)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    features: input, in_channel * h * w</span></span><br><span class="line"><span class="string">    weights: kernel, out_channel * in_channel * kernel_size * kernel_size</span></span><br><span class="line"><span class="string">    return output with out_channel</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    in_channel, h, w = features.shape</span><br><span class="line">    out_channel, _, kernel_size, _ = weights.shape</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># height and width of output image</span></span><br><span class="line">    output_h = (h + <span class="number">2</span> * padding - kernel_size) // stride + <span class="number">1</span></span><br><span class="line">    output_w = (w + <span class="number">2</span> * padding - kernel_size) // stride + <span class="number">1</span></span><br><span class="line">    output = np.zeros((out_channel, output_h, output_w))</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># call convolution out_channel * in_channel times</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(out_channel):</span><br><span class="line">        weight = weights[i]</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(in_channel):</span><br><span class="line">            feature_map = features[j]</span><br><span class="line">            kernel = weight[j]</span><br><span class="line">            output[i] += convolution(feature_map, kernel, padding, stride)</span><br><span class="line">    <span class="keyword">return</span> output</span><br></pre></td></tr></table></figure>
-<p>在实际的应用当中，我们并不需要使用自己实现的卷积函数，因为Pytorch中内置了卷积的实现。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn.functional <span class="keyword">as</span> F</span><br><span class="line"></span><br><span class="line">input_data=[</span><br><span class="line">           [[<span class="number">0</span>,<span class="number">0</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">0</span>,<span class="number">1</span>],</span><br><span class="line">            [<span class="number">0</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">2</span>],</span><br><span class="line">            [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">2</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">            [<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">            [<span class="number">2</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">0</span>,<span class="number">1</span>],</span><br><span class="line">            [<span class="number">2</span>,<span class="number">0</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>]],</span><br><span class="line"></span><br><span class="line">           [[<span class="number">2</span>,<span class="number">0</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">            [<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">2</span>,<span class="number">2</span>],</span><br><span class="line">            [<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">            [<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">            [<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>],</span><br><span class="line">            [<span class="number">2</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">2</span>]]</span><br><span class="line">            ]</span><br><span class="line">weights_data=[[ </span><br><span class="line">               [[ <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>],</span><br><span class="line">                [ <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>],</span><br><span class="line">                [ <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>]],</span><br><span class="line">    </span><br><span class="line">               [[<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>],</span><br><span class="line">                [ <span class="number">-1</span>, <span class="number">8</span>, <span class="number">-1</span>],</span><br><span class="line">                [ <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>]] </span><br><span class="line">           ]]</span><br><span class="line"></span><br><span class="line"><span class="comment"># numpy array</span></span><br><span class="line">input_data   = np.array(input_data)</span><br><span class="line">weights_data = np.array(weights_data)</span><br><span class="line"></span><br><span class="line">input_tensor = torch.tensor(input_data).unsqueeze(<span class="number">0</span>).float()</span><br><span class="line"></span><br><span class="line">F.conv2d(input_tensor, weight=torch.tensor(weights_data).float(), bias=<span class="literal">None</span>, stride=<span class="number">3</span>, padding=<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
-<p>说明：使用unsqueeze的原因是使用的numpy数组必须是N*C*W*H维度的，其中N是bitch_size，C是通道个数，W和H是宽度和高度。</p>
-<h2 id="卷积层"><a href="#卷积层" class="headerlink" title="卷积层"></a>卷积层</h2><p>在Pytorch中内置有卷积层和池化层供我们使用，Pooling layer的主要目的是缩小features的size.常用的有MaxPool(滑动窗口取最大值)与AvgPool(滑动窗口取均值)。</p>
-<h3 id="定义一个简单的卷积层"><a href="#定义一个简单的卷积层" class="headerlink" title="定义一个简单的卷积层"></a>定义一个简单的卷积层</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">x = torch.randn(<span class="number">1</span>, <span class="number">1</span>, <span class="number">32</span>, <span class="number">32</span>)</span><br><span class="line"></span><br><span class="line">conv_layer = nn.Conv2d(in_channels=<span class="number">1</span>, out_channels=<span class="number">3</span>, kernel_size=<span class="number">5</span>, stride=<span class="number">2</span>, padding=<span class="number">2</span>)</span><br><span class="line">y = conv_layer(x)</span><br><span class="line">print(x.shape)</span><br><span class="line">print(y.shape)</span><br></pre></td></tr></table></figure>
-<p>我们看到，输入是4维的，满足N*C*W*H。包括bias，该卷积层的参数量为该卷积层的参数量是1$\times$3$\times$3$\times$3+3 = 30。</p>
-<h3 id="定义一个简单的池化层"><a href="#定义一个简单的池化层" class="headerlink" title="定义一个简单的池化层"></a>定义一个简单的池化层</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># input N * C * H * W</span></span><br><span class="line">x = torch.randn(<span class="number">1</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># maxpool</span></span><br><span class="line">maxpool = nn.MaxPool2d(kernel_size=<span class="number">2</span>, stride=<span class="number">2</span>)</span><br><span class="line">y = maxpool(x)</span><br><span class="line"></span><br><span class="line"><span class="comment"># avgpool</span></span><br><span class="line">avgpool = nn.AvgPool2d(kernel_size=<span class="number">2</span>, stride=<span class="number">2</span>)</span><br><span class="line">z = avgpool(x)</span><br><span class="line"></span><br><span class="line"><span class="comment">#avgpool</span></span><br><span class="line">print(x.shape)</span><br><span class="line">print(y.shape)</span><br><span class="line">print(z.shape)</span><br><span class="line">print(x)</span><br><span class="line">print(y)</span><br><span class="line">print(z)</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="CNN实现"><a href="#CNN实现" class="headerlink" title="CNN实现"></a>CNN实现</h2><p>在开始用代码实现我们的神经网络前，我们需要清楚地知道自己要定义的网络是什么样子的，让我们建立一个简单的CNN分类器. 这个CNN的整体流程是<br>卷积(Conv2d) -&gt; BN(batch normalization) -&gt; 激励函数(ReLU) -&gt; 池化(MaxPooling) -&gt;<br>卷积(Conv2d) -&gt; BN(batch normalization) -&gt; 激励函数(ReLU) -&gt; 池化(MaxPooling) -&gt;<br>全连接层(Linear) -&gt; 输出.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> torch.utils.data <span class="keyword">as</span> Data</span><br><span class="line"><span class="keyword">import</span> torchvision</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyCNN</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, image_size, num_classes)</span>:</span></span><br><span class="line">        super(MyCNN, self).__init__()</span><br><span class="line">        <span class="comment"># conv1: Conv2d -&gt; BN -&gt; ReLU -&gt; MaxPool</span></span><br><span class="line">        self.conv1 = nn.Sequential(</span><br><span class="line">            nn.Conv2d(in_channels=<span class="number">3</span>, out_channels=<span class="number">16</span>, kernel_size=<span class="number">3</span>, stride=<span class="number">1</span>, padding=<span class="number">1</span>),</span><br><span class="line">            nn.BatchNorm2d(<span class="number">16</span>),</span><br><span class="line">            nn.ReLU(), </span><br><span class="line">            nn.MaxPool2d(kernel_size=<span class="number">2</span>, stride=<span class="number">2</span>),</span><br><span class="line">        )</span><br><span class="line">        <span class="comment"># conv2: Conv2d -&gt; BN -&gt; ReLU -&gt; MaxPool</span></span><br><span class="line">        self.conv2 = nn.Sequential(</span><br><span class="line">            nn.Conv2d(in_channels=<span class="number">16</span>, out_channels=<span class="number">32</span>, kernel_size=<span class="number">3</span>, stride=<span class="number">1</span>, padding=<span class="number">1</span>),</span><br><span class="line">            nn.BatchNorm2d(<span class="number">32</span>),</span><br><span class="line">            nn.ReLU(),</span><br><span class="line">            nn.MaxPool2d(kernel_size=<span class="number">2</span>, stride=<span class="number">2</span>),</span><br><span class="line">        )</span><br><span class="line">        <span class="comment"># fully connected layer</span></span><br><span class="line">        self.fc = nn.Linear(<span class="number">32</span> * (image_size // <span class="number">4</span>) * (image_size // <span class="number">4</span>), num_classes)</span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        input: N * 3 * image_size * image_size</span></span><br><span class="line"><span class="string">        output: N * num_classes</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        x = self.conv1(x)</span><br><span class="line">        x = self.conv2(x)</span><br><span class="line">        <span class="comment"># view(x.size(0), -1): change tensor size from (N ,H , W) to (N, H*W)</span></span><br><span class="line">        x = x.view(x.size(<span class="number">0</span>), <span class="number">-1</span>)</span><br><span class="line">        output = self.fc(x)</span><br><span class="line">        <span class="keyword">return</span> output</span><br></pre></td></tr></table></figure>
-<p>训练模型</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">train</span><span class="params">(model, train_loader, loss_func, optimizer, device)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    train model using loss_fn and optimizer in an epoch.</span></span><br><span class="line"><span class="string">    model: CNN networks</span></span><br><span class="line"><span class="string">    train_loader: a Dataloader object with training data</span></span><br><span class="line"><span class="string">    loss_func: loss function</span></span><br><span class="line"><span class="string">    device: train on cpu or gpu device</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    total_loss = <span class="number">0</span></span><br><span class="line">    <span class="comment"># train the model using minibatch</span></span><br><span class="line">    <span class="keyword">for</span> i, (images, targets) <span class="keyword">in</span> enumerate(train_loader):</span><br><span class="line">        images = images.to(device)</span><br><span class="line">        targets = targets.to(device)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># forward</span></span><br><span class="line">        outputs = model(images)</span><br><span class="line">        loss = loss_func(outputs, targets)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># backward and optimize</span></span><br><span class="line">        optimizer.zero_grad()</span><br><span class="line">        loss.backward()</span><br><span class="line">        optimizer.step()</span><br><span class="line">        </span><br><span class="line">        total_loss += loss.item()</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># every 100 iteration, print loss</span></span><br><span class="line">        <span class="keyword">if</span> (i + <span class="number">1</span>) % <span class="number">100</span> == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">print</span> (<span class="string">"Step [&#123;&#125;/&#123;&#125;] Train Loss: &#123;:.4f&#125;"</span></span><br><span class="line">                   .format(i+<span class="number">1</span>, len(train_loader), loss.item()))</span><br><span class="line">    <span class="keyword">return</span> total_loss / len(train_loader)</span><br></pre></td></tr></table></figure>
-<p>评价模型</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">evaluate</span><span class="params">(model, val_loader, device)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    model: CNN networks</span></span><br><span class="line"><span class="string">    val_loader: a Dataloader object with validation data</span></span><br><span class="line"><span class="string">    device: evaluate on cpu or gpu device</span></span><br><span class="line"><span class="string">    return classification accuracy of the model on val dataset</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="comment"># evaluate the model</span></span><br><span class="line">    model.eval()</span><br><span class="line">    <span class="comment"># context-manager that disabled gradient computation</span></span><br><span class="line">    <span class="keyword">with</span> torch.no_grad():</span><br><span class="line">        correct = <span class="number">0</span></span><br><span class="line">        total = <span class="number">0</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> i, (images, targets) <span class="keyword">in</span> enumerate(val_loader):</span><br><span class="line">            <span class="comment"># device: cpu or gpu</span></span><br><span class="line">            images = images.to(device)</span><br><span class="line">            targets = targets.to(device)</span><br><span class="line">            </span><br><span class="line">            </span><br><span class="line">            outputs = model(images)</span><br><span class="line">            </span><br><span class="line">            <span class="comment"># return the maximum value of each row of the input tensor in the </span></span><br><span class="line">            <span class="comment"># given dimension dim, the second return vale is the index location</span></span><br><span class="line">            <span class="comment"># of each maxium value found(argmax)</span></span><br><span class="line">            _, predicted = torch.max(outputs.data, dim=<span class="number">1</span>)</span><br><span class="line">            </span><br><span class="line">            </span><br><span class="line">            correct += (predicted == targets).sum().item()</span><br><span class="line">            </span><br><span class="line">            total += targets.size(<span class="number">0</span>)</span><br><span class="line">            </span><br><span class="line">        accuracy = correct / total</span><br><span class="line">        print(<span class="string">'Accuracy on Test Set: &#123;:.4f&#125; %'</span>.format(<span class="number">100</span> * accuracy))</span><br><span class="line">        <span class="keyword">return</span> accuracy</span><br></pre></td></tr></table></figure>
-<p>保存模型</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">save_model</span><span class="params">(model, save_path)</span>:</span></span><br><span class="line">    <span class="comment"># save model</span></span><br><span class="line">    torch.save(model.state_dict(), save_path)</span><br></pre></td></tr></table></figure>
-<p>画图观察</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">show_curve</span><span class="params">(ys, title)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    plot curlve for Loss and Accuacy</span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">        ys: loss or acc list</span></span><br><span class="line"><span class="string">        title: loss or accuracy</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    x = np.array(range(len(ys)))</span><br><span class="line">    y = np.array(ys)</span><br><span class="line">    plt.plot(x, y, c=<span class="string">'b'</span>)</span><br><span class="line">    plt.axis()</span><br><span class="line">    plt.title(<span class="string">'&#123;&#125; curve'</span>.format(title))</span><br><span class="line">    plt.xlabel(<span class="string">'epoch'</span>)</span><br><span class="line">    plt.ylabel(<span class="string">'&#123;&#125;'</span>.format(title))</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
-<p>数据集准备</p>
-<p>我们使用CIFAR10数据集来对我们的CNN模型进行训练，为了减少训练时间以及降低传输时间,我们在这里提供了一个删减版的CIFAR10,训练集共10000张(每类1000张),测试集5000张(每类500张).当然你也可以选择使用完整版的CIFAR10数据集(需要下载)进行训练.</p>
-<p>加载数据</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> torchvision</span><br><span class="line"><span class="keyword">import</span> torchvision.transforms <span class="keyword">as</span> transforms</span><br><span class="line"></span><br><span class="line"><span class="comment"># mean and std of cifar10 in 3 channels </span></span><br><span class="line">cifar10_mean = (<span class="number">0.49</span>, <span class="number">0.48</span>, <span class="number">0.45</span>)</span><br><span class="line">cifar10_std = (<span class="number">0.25</span>, <span class="number">0.24</span>, <span class="number">0.26</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># define transform operations of train dataset </span></span><br><span class="line">train_transform = transforms.Compose([</span><br><span class="line">    <span class="comment"># data augmentation</span></span><br><span class="line">    transforms.Pad(<span class="number">4</span>),</span><br><span class="line">    transforms.RandomHorizontalFlip(),</span><br><span class="line">    transforms.RandomCrop(<span class="number">32</span>),</span><br><span class="line">    </span><br><span class="line">    transforms.ToTensor(),</span><br><span class="line">    transforms.Normalize(cifar10_mean, cifar10_std)])</span><br><span class="line"></span><br><span class="line">test_transform = transforms.Compose([</span><br><span class="line">    transforms.ToTensor(),</span><br><span class="line">    transforms.Normalize(cifar10_mean, cifar10_std)])</span><br><span class="line"></span><br><span class="line"><span class="comment"># mini train Cifar10 datasets: 1000 images each class</span></span><br><span class="line">train_dataset = torchvision.datasets.ImageFolder(root=<span class="string">'./data/path2cifar10/train'</span>, transform=train_transform)</span><br><span class="line"><span class="comment"># mini test Cifar10 datasets: 500 images each class</span></span><br><span class="line">test_dataset = torchvision.datasets.ImageFolder(root=<span class="string">'./data/path2cifar10/test'</span>, transform=test_transform)</span><br><span class="line"></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">torchvision.datasets provide the full version of CIFAR-10 dataset</span></span><br><span class="line"><span class="string">if you want to train the full version of cifar10 datasets, use codes below instead.</span></span><br><span class="line"><span class="string">"""</span> </span><br><span class="line"><span class="comment"># train_dataset = torchvision.datasets.CIFAR10(root='./data/',</span></span><br><span class="line"><span class="comment">#                                              train=True, </span></span><br><span class="line"><span class="comment">#                                              transform=train_transform,</span></span><br><span class="line"><span class="comment">#                                              download=True)</span></span><br><span class="line"><span class="comment"># test_dataset = torchvision.datasets.CIFAR10(root='./data/',</span></span><br><span class="line"><span class="comment">#                                             train=False, </span></span><br><span class="line"><span class="comment">#                                             transform=test_transform)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Data loader: provides single- or multi-process iterators over the dataset.</span></span><br><span class="line">train_loader = torch.utils.data.DataLoader(dataset=train_dataset,</span><br><span class="line">                                           batch_size=<span class="number">100</span>, </span><br><span class="line">                                           shuffle=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">test_loader = torch.utils.data.DataLoader(dataset=test_dataset,</span><br><span class="line">                                          batch_size=<span class="number">100</span>, </span><br><span class="line">                                          shuffle=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
-<p>训练过程</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fit</span><span class="params">(model, num_epochs, optimizer, device)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    train and evaluate an classifier num_epochs times.</span></span><br><span class="line"><span class="string">    We use optimizer and cross entropy loss to train the model. </span></span><br><span class="line"><span class="string">    Args: </span></span><br><span class="line"><span class="string">        model: CNN network</span></span><br><span class="line"><span class="string">        num_epochs: the number of training epochs</span></span><br><span class="line"><span class="string">        optimizer: optimize the loss function</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">        </span><br><span class="line">    <span class="comment"># loss and optimizer</span></span><br><span class="line">    loss_func = nn.CrossEntropyLoss()</span><br><span class="line">    </span><br><span class="line">    model.to(device)</span><br><span class="line">    loss_func.to(device)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># log train loss and test accuracy</span></span><br><span class="line">    losses = []</span><br><span class="line">    accs = []</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> epoch <span class="keyword">in</span> range(num_epochs):</span><br><span class="line">        </span><br><span class="line">        print(<span class="string">'Epoch &#123;&#125;/&#123;&#125;:'</span>.format(epoch + <span class="number">1</span>, num_epochs))</span><br><span class="line">        <span class="comment"># train step</span></span><br><span class="line">        loss = train(model, train_loader, loss_func, optimizer, device)</span><br><span class="line">        losses.append(loss)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># evaluate step</span></span><br><span class="line">        accuracy = evaluate(model, test_loader, device)</span><br><span class="line">        accs.append(accuracy)</span><br><span class="line">        </span><br><span class="line">    </span><br><span class="line">    <span class="comment"># show curve</span></span><br><span class="line">    show_curve(losses, <span class="string">"train loss"</span>)</span><br><span class="line">    show_curve(accs, <span class="string">"test accuracy"</span>)</span><br></pre></td></tr></table></figure>
-<p>训练</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># hyper parameters</span></span><br><span class="line">num_epochs = <span class="number">10</span></span><br><span class="line">lr = <span class="number">0.01</span></span><br><span class="line">image_size = <span class="number">32</span></span><br><span class="line">num_classes = <span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># declare and define an objet of MyCNN</span></span><br><span class="line">mycnn = MyCNN(image_size, num_classes)</span><br><span class="line">print(mycnn)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Device configuration, cpu, cuda:0/1/2/3 available</span></span><br><span class="line">device = torch.device(<span class="string">'cuda:0'</span>)</span><br><span class="line"></span><br><span class="line">optimizer = torch.optim.Adam(mycnn.parameters(), lr=lr)</span><br><span class="line"></span><br><span class="line"><span class="comment"># start training on cifar10 dataset</span></span><br><span class="line">fit(mycnn, num_epochs, optimizer, device)</span><br></pre></td></tr></table></figure>
-
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/04/01/CNN-torch/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
           
+          <!--/noindex-->
         
       
     </div>
@@ -527,13 +504,13 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/31/ios-MVC模式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Vilinz">
+      <meta itemprop="name" content="Vilin">
       <meta itemprop="description" content>
       <meta itemprop="image" content="/images/my.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Viliz">
+      <meta itemprop="name" content="Vilin">
     </span>
 
     
@@ -586,7 +563,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-01 00:04:37" itemprop="dateModified" datetime="2019-04-01T00:04:37+08:00">2019-04-01</time>
+                <time title="修改时间：2019-04-03 00:19:25" itemprop="dateModified" datetime="2019-04-03T00:19:25+08:00">2019-04-03</time>
               
             
           </span>
@@ -639,7 +616,7 @@
 
       
         
-          <h2 id="ios-MVC模式"><a href="#ios-MVC模式" class="headerlink" title="ios-MVC模式"></a>ios-MVC模式</h2><p>MVC的全称是Model-View-Control，是一种软件设计模式，该模式在ios开发中被使用的淋漓尽致，所以我们有必要深入理解这个设计模式。</p>
+          <p>摘要：ios的MVC模式介绍，Navigation Controller使用已经Search Bar的使用。</p>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -706,13 +683,13 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/30/numpy基础/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Vilinz">
+      <meta itemprop="name" content="Vilin">
       <meta itemprop="description" content>
       <meta itemprop="image" content="/images/my.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Viliz">
+      <meta itemprop="name" content="Vilin">
     </span>
 
     
@@ -765,7 +742,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-31 15:57:58" itemprop="dateModified" datetime="2019-03-31T15:57:58+08:00">2019-03-31</time>
+                <time title="修改时间：2019-04-03 00:20:35" itemprop="dateModified" datetime="2019-04-03T00:20:35+08:00">2019-04-03</time>
               
             
           </span>
@@ -818,7 +795,7 @@
 
       
         
-          <p>NumPy是使用Python进行科学计算的基础包。</p>
+          <p>摘要：numpy基础知识。</p>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -885,13 +862,13 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/29/ios-UI编程，网络编程，文件系统/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Vilinz">
+      <meta itemprop="name" content="Vilin">
       <meta itemprop="description" content>
       <meta itemprop="image" content="/images/my.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Viliz">
+      <meta itemprop="name" content="Vilin">
     </span>
 
     
@@ -944,7 +921,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-31 22:07:36" itemprop="dateModified" datetime="2019-03-31T22:07:36+08:00">2019-03-31</time>
+                <time title="修改时间：2019-04-03 00:20:06" itemprop="dateModified" datetime="2019-04-03T00:20:06+08:00">2019-04-03</time>
               
             
           </span>
@@ -997,8 +974,7 @@
 
       
         
-          <h1 id="ios培训第二周"><a href="#ios培训第二周" class="headerlink" title="ios培训第二周"></a>ios培训第二周</h1><h3 id="UI编程"><a href="#UI编程" class="headerlink" title="UI编程"></a>UI编程</h3><hr>
-<h4 id="简单的UI控件"><a href="#简单的UI控件" class="headerlink" title="简单的UI控件"></a>简单的UI控件</h4><p>常用的UI控件有UILabel，UIImageView，UIButton，UISwitch。UITextField，UITextView。一个UI控件在View的显示有位置，属性和从属关系三个关键点，通过定义一个控件时确定其位置，然后是往控件添加各种属性，最后将控件添加到父视图当中。</p>
+          <p>摘要：ios的UI编程，网络编程和文件系统。</p>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -1065,13 +1041,13 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/02/2019-2-2-matlab(七)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Vilinz">
+      <meta itemprop="name" content="Vilin">
       <meta itemprop="description" content>
       <meta itemprop="image" content="/images/my.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Viliz">
+      <meta itemprop="name" content="Vilin">
     </span>
 
     
@@ -1124,7 +1100,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-27 23:31:26" itemprop="dateModified" datetime="2019-03-27T23:31:26+08:00">2019-03-27</time>
+                <time title="修改时间：2019-04-03 00:16:10" itemprop="dateModified" datetime="2019-04-03T00:16:10+08:00">2019-04-03</time>
               
             
           </span>
@@ -1177,84 +1153,7 @@
 
       
         
-          <h1 id="Matlab数据类型"><a href="#Matlab数据类型" class="headerlink" title="Matlab数据类型"></a>Matlab数据类型</h1><h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><table>
-<thead>
-<tr>
-<th>类型</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>int8</code></td>
-<td><code>8</code>位有符号整数</td>
-</tr>
-<tr>
-<td><code>uint8</code></td>
-<td><code>8</code>位无符号整数</td>
-</tr>
-<tr>
-<td><code>int16</code></td>
-<td><code>16</code>位有符号整数</td>
-</tr>
-<tr>
-<td><code>uint16</code></td>
-<td><code>16</code>位无符号整数</td>
-</tr>
-<tr>
-<td><code>int32</code></td>
-<td><code>32</code>位有符号整数</td>
-</tr>
-<tr>
-<td><code>uint32</code></td>
-<td><code>32</code>位无符号整数</td>
-</tr>
-<tr>
-<td><code>int64</code></td>
-<td><code>64</code>位有符号整数</td>
-</tr>
-<tr>
-<td><code>uint64</code></td>
-<td><code>64</code>位无符号整数</td>
-</tr>
-<tr>
-<td><code>single</code></td>
-<td>单精度数值数据</td>
-</tr>
-<tr>
-<td><code>double</code></td>
-<td>双精度数值数据</td>
-</tr>
-<tr>
-<td><code>logical</code></td>
-<td>逻辑值为<code>1</code>或<code>0</code>，分别代表<code>true</code>和<code>false</code></td>
-</tr>
-<tr>
-<td><code>char</code></td>
-<td>字符数据(字符串作为字符向量存储)</td>
-</tr>
-<tr>
-<td>单元格阵列</td>
-<td>索引单元阵列，每个都能够存储不同维数和数据类型的数组</td>
-</tr>
-<tr>
-<td>结构体</td>
-<td>C型结构，每个结构具有能够存储不同维数和数据类型的数组的命名字段</td>
-</tr>
-<tr>
-<td>函数处理</td>
-<td>指向一个函数的指针</td>
-</tr>
-<tr>
-<td>用户类</td>
-<td>用户定义的类构造的对象</td>
-</tr>
-<tr>
-<td>Java类</td>
-<td>从Java类构造的对象</td>
-</tr>
-</tbody>
-</table>
+          <p>摘要：MATLAB数据类型。</p>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -1321,13 +1220,13 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/02/2019-2-2-matlab(六)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Vilinz">
+      <meta itemprop="name" content="Vilin">
       <meta itemprop="description" content>
       <meta itemprop="image" content="/images/my.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Viliz">
+      <meta itemprop="name" content="Vilin">
     </span>
 
     
@@ -1380,7 +1279,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-27 23:31:47" itemprop="dateModified" datetime="2019-03-27T23:31:47+08:00">2019-03-27</time>
+                <time title="修改时间：2019-04-03 00:17:24" itemprop="dateModified" datetime="2019-04-03T00:17:24+08:00">2019-04-03</time>
               
             
           </span>
@@ -1433,7 +1332,7 @@
 
       
         
-          <h1 id="Matlab脚本编辑与执行"><a href="#Matlab脚本编辑与执行" class="headerlink" title="Matlab脚本编辑与执行"></a>Matlab脚本编辑与执行</h1><p>MATLAB是一门编程语言，对于编程人员来说，在控制台一条命令一条命令地执行显然是不合理的，就好像python一样，我们需要将语言编辑成脚本，然后整个脚本地执行。</p>
+          <p>摘要：MATLAB脚本编辑与执行。</p>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -1500,13 +1399,13 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/02/2019-2-2-matlab(五)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Vilinz">
+      <meta itemprop="name" content="Vilin">
       <meta itemprop="description" content>
       <meta itemprop="image" content="/images/my.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Viliz">
+      <meta itemprop="name" content="Vilin">
     </span>
 
     
@@ -1559,7 +1458,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-27 23:31:38" itemprop="dateModified" datetime="2019-03-27T23:31:38+08:00">2019-03-27</time>
+                <time title="修改时间：2019-04-03 00:16:50" itemprop="dateModified" datetime="2019-04-03T00:16:50+08:00">2019-04-03</time>
               
             
           </span>
@@ -1612,53 +1511,7 @@
 
       
         
-          <h1 id="Matlab控制台管理"><a href="#Matlab控制台管理" class="headerlink" title="Matlab控制台管理"></a>Matlab控制台管理</h1><h2 id="管理命令"><a href="#管理命令" class="headerlink" title="管理命令"></a>管理命令</h2><table>
-<thead>
-<tr>
-<th>命令</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>clc</code></td>
-<td>清除命令窗口</td>
-</tr>
-<tr>
-<td><code>clear</code></td>
-<td>从内存中删除变量</td>
-</tr>
-<tr>
-<td><code>exist</code></td>
-<td>检查文件或变量是否存在</td>
-</tr>
-<tr>
-<td><code>global</code></td>
-<td>声明变量为全局变量</td>
-</tr>
-<tr>
-<td><code>help</code></td>
-<td>搜索帮助主题</td>
-</tr>
-<tr>
-<td><code>lookfor</code></td>
-<td>搜索帮助关键字的条目。</td>
-</tr>
-<tr>
-<td><code>quit</code></td>
-<td>停止MATLAB</td>
-</tr>
-<tr>
-<td><code>who</code></td>
-<td>列出当前变量</td>
-</tr>
-<tr>
-<td><code>whos</code></td>
-<td>列出当前变量(长显示详细信息)</td>
-</tr>
-</tbody>
-</table>
-<hr>
+          <p>摘要：MATLAB控制台管理。</p>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -1725,13 +1578,13 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/23/2019-1-23-matlab(四)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Vilinz">
+      <meta itemprop="name" content="Vilin">
       <meta itemprop="description" content>
       <meta itemprop="image" content="/images/my.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Viliz">
+      <meta itemprop="name" content="Vilin">
     </span>
 
     
@@ -1784,7 +1637,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-27 23:31:13" itemprop="dateModified" datetime="2019-03-27T23:31:13+08:00">2019-03-27</time>
+                <time title="修改时间：2019-04-03 00:15:49" itemprop="dateModified" datetime="2019-04-03T00:15:49+08:00">2019-04-03</time>
               
             
           </span>
@@ -1837,7 +1690,7 @@
 
       
         
-          <h1 id="Matlab变量"><a href="#Matlab变量" class="headerlink" title="Matlab变量"></a>Matlab变量</h1><p>MATLAB中的变量可以说是无类型的，但它的类型又只有数组或矩阵这两种，也就是说，MATLAB的变量只能是数组或者矩阵。</p>
+          <p>摘要：MATLAB变量。</p>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -1904,13 +1757,13 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/23/2019-1-23-matlab(三) /">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Vilinz">
+      <meta itemprop="name" content="Vilin">
       <meta itemprop="description" content>
       <meta itemprop="image" content="/images/my.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Viliz">
+      <meta itemprop="name" content="Vilin">
     </span>
 
     
@@ -1963,7 +1816,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-27 23:31:03" itemprop="dateModified" datetime="2019-03-27T23:31:03+08:00">2019-03-27</time>
+                <time title="修改时间：2019-04-03 00:15:26" itemprop="dateModified" datetime="2019-04-03T00:15:26+08:00">2019-04-03</time>
               
             
           </span>
@@ -2016,7 +1869,7 @@
 
       
         
-          <h1 id="Matlab语法"><a href="#Matlab语法" class="headerlink" title="Matlab语法"></a>Matlab语法</h1><p>MATLAB可以看作一个计算器，跟python有点类似，在工作区输入对应的式子，会有对应的结果产生。</p>
+          <p>摘要：MARTLAB语法。</p>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -2083,13 +1936,13 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/22/2019-1-22-matlab(二)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Vilinz">
+      <meta itemprop="name" content="Vilin">
       <meta itemprop="description" content>
       <meta itemprop="image" content="/images/my.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Viliz">
+      <meta itemprop="name" content="Vilin">
     </span>
 
     
@@ -2142,7 +1995,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-27 23:30:53" itemprop="dateModified" datetime="2019-03-27T23:30:53+08:00">2019-03-27</time>
+                <time title="修改时间：2019-04-03 00:14:54" itemprop="dateModified" datetime="2019-04-03T00:14:54+08:00">2019-04-03</time>
               
             
           </span>
@@ -2195,8 +2048,7 @@
 
       
         
-          <h1 id="MATLAB安装"><a href="#MATLAB安装" class="headerlink" title="MATLAB安装"></a>MATLAB安装</h1><ul>
-<li><p>学生教育邮箱注册账号，然后在以下界面安装，如果没有教育邮箱，请下载试用版；本人这里是windows版本，所以下载的是第一个。</p></li></ul>
+          <p>摘要：MATLAB安装。</p>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -2280,9 +2132,9 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="/images/my.jpg" alt="Vilinz">
+              <img class="site-author-image" itemprop="image" src="/images/my.jpg" alt="Vilin">
             
-              <p class="site-author-name" itemprop="name">Vilinz</p>
+              <p class="site-author-name" itemprop="name">Vilin</p>
               <div class="site-description motion-element" itemprop="description"></div>
           </div>
 
@@ -2425,7 +2277,7 @@
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Vilinz</span>
+  <span class="author" itemprop="copyrightHolder">Vilin</span>
 
   
 

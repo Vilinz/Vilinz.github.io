@@ -98,19 +98,19 @@
 
 
 
-  <meta name="description" content="ios-MVC模式MVC的全称是Model-View-Control，是一种软件设计模式，该模式在ios开发中被使用的淋漓尽致，所以我们有必要深入理解这个设计模式。">
+  <meta name="description" content="摘要：ios的MVC模式介绍，Navigation Controller使用已经Search Bar的使用。">
 <meta name="keywords" content="ios">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ios MVC模式">
 <meta property="og:url" content="http://yoursite.com/2019/03/31/ios-MVC模式/index.html">
-<meta property="og:site_name" content="Viliz">
-<meta property="og:description" content="ios-MVC模式MVC的全称是Model-View-Control，是一种软件设计模式，该模式在ios开发中被使用的淋漓尽致，所以我们有必要深入理解这个设计模式。">
+<meta property="og:site_name" content="Vilin">
+<meta property="og:description" content="摘要：ios的MVC模式介绍，Navigation Controller使用已经Search Bar的使用。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2019/03/31/ios-MVC模式/MVC.jpg">
-<meta property="og:updated_time" content="2019-03-31T16:04:37.779Z">
+<meta property="og:updated_time" content="2019-04-02T16:19:25.641Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ios MVC模式">
-<meta name="twitter:description" content="ios-MVC模式MVC的全称是Model-View-Control，是一种软件设计模式，该模式在ios开发中被使用的淋漓尽致，所以我们有必要深入理解这个设计模式。">
+<meta name="twitter:description" content="摘要：ios的MVC模式介绍，Navigation Controller使用已经Search Bar的使用。">
 <meta name="twitter:image" content="http://yoursite.com/2019/03/31/ios-MVC模式/MVC.jpg">
 
 
@@ -129,7 +129,7 @@
   };
 </script>
 
-  <title>ios MVC模式 | Viliz</title>
+  <title>ios MVC模式 | Vilin</title>
   
 
 
@@ -188,7 +188,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Viliz</span>
+        <span class="site-title">Vilin</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -331,13 +331,13 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/31/ios-MVC模式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Vilinz">
+      <meta itemprop="name" content="Vilin">
       <meta itemprop="description" content>
       <meta itemprop="image" content="/images/my.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Viliz">
+      <meta itemprop="name" content="Vilin">
     </span>
 
     
@@ -388,7 +388,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-01 00:04:37" itemprop="dateModified" datetime="2019-04-01T00:04:37+08:00">2019-04-01</time>
+                <time title="修改时间：2019-04-03 00:19:25" itemprop="dateModified" datetime="2019-04-03T00:19:25+08:00">2019-04-03</time>
               
             
           </span>
@@ -447,8 +447,9 @@
       
 
       
-        <h2 id="ios-MVC模式"><a href="#ios-MVC模式" class="headerlink" title="ios-MVC模式"></a>ios-MVC模式</h2><p>MVC的全称是Model-View-Control，是一种软件设计模式，该模式在ios开发中被使用的淋漓尽致，所以我们有必要深入理解这个设计模式。</p>
+        <p>摘要：ios的MVC模式介绍，Navigation Controller使用已经Search Bar的使用。</p>
 <a id="more"></a>
+<h2 id="ios-MVC模式"><a href="#ios-MVC模式" class="headerlink" title="ios-MVC模式"></a>ios-MVC模式</h2><p>MVC的全称是Model-View-Control，是一种软件设计模式，该模式在ios开发中被使用的淋漓尽致，所以我们有必要深入理解这个设计模式。</p>
 <h5 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h5><p>模型对象处理模式当中的数据，封装了应用程序的数据，并定义操控和处理该数据的逻辑和运算。在该模式下可以进行数据的存储，编辑和删除，我们定义在这个对象上面的操作叫做业务逻辑。</p>
 <h5 id="View"><a href="#View" class="headerlink" title="View"></a>View</h5><p>View管理的是可视层，管理信息的可视化显示。例如，UITableView以表格视图格式显示信息。</p>
 <h5 id="Controller"><a href="#Controller" class="headerlink" title="Controller"></a>Controller</h5><p>Controller是沟通Model和View之间的桥梁，用户与软件的交互实际上就是用户与数据的交互，也就是用户与Model之间的交互，但在MVC模式当中，我们不能直接对Model进行操作，View是用户直接操作的对象，然后通过Controller将View的动作传递到Model中，模型View的更新也是通过中间者Controller来传递到View中对视图进行更新，也就是Controller的作用就是将用户交互从视图（例如，点击）转换为要在模型中执行的适当动作。例如，用户点击视图中的删除按钮，控制器依次触发模型中的删除操作。之后，它还请求视图刷新自身以反映数据模型的更新。</p>
@@ -622,9 +623,9 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="/images/my.jpg" alt="Vilinz">
+              <img class="site-author-image" itemprop="image" src="/images/my.jpg" alt="Vilin">
             
-              <p class="site-author-name" itemprop="name">Vilinz</p>
+              <p class="site-author-name" itemprop="name">Vilin</p>
               <div class="site-description motion-element" itemprop="description"></div>
           </div>
 
@@ -784,7 +785,7 @@
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Vilinz</span>
+  <span class="author" itemprop="copyrightHolder">Vilin</span>
 
   
 
