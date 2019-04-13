@@ -98,18 +98,21 @@
 
 
 
-  <meta name="description" content="摘要：MATLAB控制台管理。">
-<meta name="keywords" content="Matlab">
+  <meta name="description" content="简述瀑布模型、增量模型、螺旋模型（含原型方法），并分析优缺点（从项目特点、风险特征、人力资源利用角度思考）">
+<meta name="keywords" content="系统分析与设计">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Matlab教程(五)">
-<meta property="og:url" content="http://yoursite.com/2019/02/02/2019-2-2-matlab(五)/index.html">
+<meta property="og:title" content="系统分析与设计(三)">
+<meta property="og:url" content="http://yoursite.com/2019/04/13/系统分析与设计-三/index.html">
 <meta property="og:site_name" content="Vilin">
-<meta property="og:description" content="摘要：MATLAB控制台管理。">
+<meta property="og:description" content="简述瀑布模型、增量模型、螺旋模型（含原型方法），并分析优缺点（从项目特点、风险特征、人力资源利用角度思考）">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-02T16:16:50.087Z">
+<meta property="og:image" content="http://yoursite.com/2019/04/13/系统分析与设计-三/D:/Blog/blog/source/_posts/系统分析与设计-三/525px-Waterfall_model.svg.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/13/系统分析与设计-三/D:/Blog/blog/source/_posts/系统分析与设计-三/Snipaste_2019-04-13_20-15-57.jpg">
+<meta property="og:updated_time" content="2019-04-13T12:30:56.272Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Matlab教程(五)">
-<meta name="twitter:description" content="摘要：MATLAB控制台管理。">
+<meta name="twitter:title" content="系统分析与设计(三)">
+<meta name="twitter:description" content="简述瀑布模型、增量模型、螺旋模型（含原型方法），并分析优缺点（从项目特点、风险特征、人力资源利用角度思考）">
+<meta name="twitter:image" content="http://yoursite.com/2019/04/13/系统分析与设计-三/D:/Blog/blog/source/_posts/系统分析与设计-三/525px-Waterfall_model.svg.png">
 
 
 
@@ -117,7 +120,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/02/02/2019-2-2-matlab(五)/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/13/系统分析与设计-三/">
 
 
 
@@ -127,7 +130,7 @@
   };
 </script>
 
-  <title>Matlab教程(五) | Vilin</title>
+  <title>系统分析与设计(三) | Vilin</title>
   
 
 
@@ -326,7 +329,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/02/2019-2-2-matlab(五)/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/13/系统分析与设计-三/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Vilin">
@@ -343,7 +346,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Matlab教程(五)
+          <h1 class="post-title" itemprop="name headline">系统分析与设计(三)
 
               
             
@@ -369,24 +372,12 @@
                 
               
 
-              <time title="创建时间：2019-02-02 00:00:00" itemprop="dateCreated datePublished" datetime="2019-02-02T00:00:00+08:00">2019-02-02</time>
+              <time title="创建时间：2019-04-13 00:02:49 / 修改时间：20:30:56" itemprop="dateCreated datePublished" datetime="2019-04-13T00:02:49+08:00">2019-04-13</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-04-03 00:16:50" itemprop="dateModified" datetime="2019-04-03T00:16:50+08:00">2019-04-03</time>
               
             
           </span>
@@ -403,7 +394,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/编程语言/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/系统分析与设计/" itemprop="url" rel="index"><span itemprop="name">系统分析与设计</span></a></span>
 
                 
                 
@@ -445,470 +436,125 @@
       
 
       
-        <p>摘要：MATLAB控制台管理。</p>
-<a id="more"></a>
-<h1 id="Matlab控制台管理"><a href="#Matlab控制台管理" class="headerlink" title="Matlab控制台管理"></a>Matlab控制台管理</h1><h2 id="管理命令"><a href="#管理命令" class="headerlink" title="管理命令"></a>管理命令</h2><table>
-<thead>
-<tr>
-<th>命令</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>clc</code></td>
-<td>清除命令窗口</td>
-</tr>
-<tr>
-<td><code>clear</code></td>
-<td>从内存中删除变量</td>
-</tr>
-<tr>
-<td><code>exist</code></td>
-<td>检查文件或变量是否存在</td>
-</tr>
-<tr>
-<td><code>global</code></td>
-<td>声明变量为全局变量</td>
-</tr>
-<tr>
-<td><code>help</code></td>
-<td>搜索帮助主题</td>
-</tr>
-<tr>
-<td><code>lookfor</code></td>
-<td>搜索帮助关键字的条目。</td>
-</tr>
-<tr>
-<td><code>quit</code></td>
-<td>停止MATLAB</td>
-</tr>
-<tr>
-<td><code>who</code></td>
-<td>列出当前变量</td>
-</tr>
-<tr>
-<td><code>whos</code></td>
-<td>列出当前变量(长显示详细信息)</td>
-</tr>
-</tbody>
-</table>
-<h2 id="Matlab系统命令"><a href="#Matlab系统命令" class="headerlink" title="Matlab系统命令"></a>Matlab系统命令</h2><table>
-<thead>
-<tr>
-<th><code>cd</code></th>
-<th>更改当前目录(进入指定目录)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>date</code></td>
-<td>显示当前日期</td>
-</tr>
-<tr>
-<td><code>delete</code></td>
-<td>删除文件</td>
-</tr>
-<tr>
-<td><code>diary</code></td>
-<td>打开/关闭日记文件记录</td>
-</tr>
-<tr>
-<td><code>dir</code></td>
-<td>列出当前目录下的所有文件</td>
-</tr>
-<tr>
-<td><code>load</code></td>
-<td>从文件加载工作区变量</td>
-</tr>
-<tr>
-<td><code>path</code></td>
-<td>显示搜索路径</td>
-</tr>
-<tr>
-<td><code>pwd</code></td>
-<td>显示当前目录</td>
-</tr>
-<tr>
-<td><code>save</code></td>
-<td>将工作空间变量保存在文件中</td>
-</tr>
-<tr>
-<td><code>type</code></td>
-<td>显示文件的内容</td>
-</tr>
-<tr>
-<td><code>what</code></td>
-<td>列出当前目录中的所有MATLAB文件</td>
-</tr>
-<tr>
-<td><code>wklread</code></td>
-<td>读取<code>.wk1</code>电子表格文件</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h2 id="输入输出命令"><a href="#输入输出命令" class="headerlink" title="输入输出命令"></a>输入输出命令</h2><table>
-<thead>
-<tr>
-<th>命令</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>disp</code></td>
-<td>显示数组或字符串的内容</td>
-</tr>
-<tr>
-<td><code>fscanf</code></td>
-<td>从文件读取格式化数据</td>
-</tr>
-<tr>
-<td><code>format</code></td>
-<td>控制屏幕显示格式</td>
-</tr>
-<tr>
-<td><code>fprintf</code></td>
-<td>对屏幕或文件执行格式化的写入</td>
-</tr>
-<tr>
-<td><code>input</code></td>
-<td>显示提示并等待输入</td>
-</tr>
-<tr>
-<td><code>;</code></td>
-<td>禁止打印显示</td>
-</tr>
-</tbody>
-</table>
-<p>fscanf和fprintf与c语言类似，其格式化表示为</p>
-<table>
-<thead>
-<tr>
-<th>命令</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>%s</code></td>
-<td>格式化为字符串</td>
-</tr>
-<tr>
-<td><code>%d</code></td>
-<td>格式化为字符串整数值</td>
-</tr>
-<tr>
-<td><code>%f</code></td>
-<td>格式化为浮点值</td>
-</tr>
-<tr>
-<td><code>%e</code></td>
-<td>格式化为科学记数法的浮点值</td>
-</tr>
-<tr>
-<td><code>%g</code></td>
-<td>格式最紧凑的形式：<code>%f</code>或<code>%e</code>。</td>
-</tr>
-<tr>
-<td><code>\n</code></td>
-<td>在输出字符串中插入一个换行</td>
-</tr>
-<tr>
-<td><code>\t</code></td>
-<td>在输出字符串中插入制表符</td>
-</tr>
-</tbody>
-</table>
-<p>format表示如下</p>
-<table>
-<thead>
-<tr>
-<th>命令</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>format short</code></td>
-<td>4位十进制数(默认)</td>
-</tr>
-<tr>
-<td><code>format long</code></td>
-<td>16位数字</td>
-</tr>
-<tr>
-<td><code>format short e</code></td>
-<td>5位数加上指数</td>
-</tr>
-<tr>
-<td><code>format long e</code></td>
-<td>16位加上指数</td>
-</tr>
-<tr>
-<td><code>format bank</code></td>
-<td>两位十进制数字</td>
-</tr>
-<tr>
-<td><code>format +</code></td>
-<td>正，负或零</td>
-</tr>
-<tr>
-<td><code>format rat</code></td>
-<td>有理近似</td>
-</tr>
-<tr>
-<td><code>format compact</code></td>
-<td>禁止一些换行符</td>
-</tr>
-<tr>
-<td><code>format loose</code></td>
-<td>重置为较不紧凑的显示模式</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h2 id="向量，矩阵和数组命令"><a href="#向量，矩阵和数组命令" class="headerlink" title="向量，矩阵和数组命令"></a>向量，矩阵和数组命令</h2><table>
-<thead>
-<tr>
-<th>命令</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>cat</code></td>
-<td>连接数组</td>
-</tr>
-<tr>
-<td><code>find</code></td>
-<td>查找非零元素的索引</td>
-</tr>
-<tr>
-<td><code>length</code></td>
-<td>计算元素数量</td>
-</tr>
-<tr>
-<td><code>linspace</code></td>
-<td>创建规则间隔的向量</td>
-</tr>
-<tr>
-<td><code>logspace</code></td>
-<td>创建对数间隔向量</td>
-</tr>
-<tr>
-<td><code>max</code></td>
-<td>返回最大的元素</td>
-</tr>
-<tr>
-<td><code>min</code></td>
-<td>返回最小的元素</td>
-</tr>
-<tr>
-<td><code>prod</code></td>
-<td>产生的每列</td>
-</tr>
-<tr>
-<td><code>reshape</code></td>
-<td>改变大小</td>
-</tr>
-<tr>
-<td><code>size</code></td>
-<td>计算数组大小</td>
-</tr>
-<tr>
-<td><code>sort</code></td>
-<td>对每列进行排序</td>
-</tr>
-<tr>
-<td><code>sum</code></td>
-<td>对每列进行求和</td>
-</tr>
-<tr>
-<td><code>eye</code></td>
-<td>创建一个单位矩阵</td>
-</tr>
-<tr>
-<td><code>ones</code></td>
-<td>创建一个数组</td>
-</tr>
-<tr>
-<td><code>zeros</code></td>
-<td>创建一个零的数组</td>
-</tr>
-<tr>
-<td><code>cross</code></td>
-<td>计算矩阵交叉积</td>
-</tr>
-<tr>
-<td><code>dot</code></td>
-<td>计算矩阵点积</td>
-</tr>
-<tr>
-<td><code>det</code></td>
-<td>计算数组的行列式</td>
-</tr>
-<tr>
-<td><code>inv</code></td>
-<td>计算矩阵的倒数</td>
-</tr>
-<tr>
-<td><code>pinv</code></td>
-<td>计算矩阵的伪逆</td>
-</tr>
-<tr>
-<td><code>rank</code></td>
-<td>计算矩阵的秩</td>
-</tr>
-<tr>
-<td><code>rref</code></td>
-<td>计算简化行阶梯形式</td>
-</tr>
-<tr>
-<td><code>cell</code></td>
-<td>创建单元格数组</td>
-</tr>
-<tr>
-<td><code>celldisp</code></td>
-<td>显示单元格数组</td>
-</tr>
-<tr>
-<td><code>cellplot</code></td>
-<td>显示单元格阵列的图形表示</td>
-</tr>
-<tr>
-<td><code>num2cell</code></td>
-<td>将数组转换为单元格数组</td>
-</tr>
-<tr>
-<td><code>deal</code></td>
-<td>匹配输入和输出列表</td>
-</tr>
-<tr>
-<td><code>iscell</code></td>
-<td>识别单元格数组</td>
-</tr>
-<tr>
-<td></td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h2 id="绘图命令"><a href="#绘图命令" class="headerlink" title="绘图命令"></a>绘图命令</h2><table>
-<thead>
-<tr>
-<th>命令</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>stairs</code></td>
-<td>创建梯形图</td>
-</tr>
-<tr>
-<td><code>stem</code></td>
-<td>创建茎图</td>
-</tr>
-<tr>
-<td><code>axis</code></td>
-<td>设置轴限制</td>
-</tr>
-<tr>
-<td><code>fplot</code></td>
-<td>智能绘图功能</td>
-</tr>
-<tr>
-<td><code>grid</code></td>
-<td>显示网格线</td>
-</tr>
-<tr>
-<td><code>plot</code></td>
-<td>生成<code>xy</code>坐标图</td>
-</tr>
-<tr>
-<td><code>print</code></td>
-<td>打印或绘图到文件</td>
-</tr>
-<tr>
-<td><code>title</code></td>
-<td>在文字的顶部放置文字</td>
-</tr>
-<tr>
-<td><code>xlabel</code></td>
-<td>将文本标签添加到<code>x</code>轴</td>
-</tr>
-<tr>
-<td><code>ylabel</code></td>
-<td>将文本标签添加到<code>y</code>轴</td>
-</tr>
-<tr>
-<td><code>axes</code></td>
-<td>创建轴对象</td>
-</tr>
-<tr>
-<td><code>close</code></td>
-<td>关闭当前坐标图</td>
-</tr>
-<tr>
-<td><code>close all</code></td>
-<td>关闭所有坐标图</td>
-</tr>
-<tr>
-<td><code>figure</code></td>
-<td>打开一个新的图形窗口</td>
-</tr>
-<tr>
-<td><code>gtext</code></td>
-<td>通过鼠标启用标签放置</td>
-</tr>
-<tr>
-<td><code>hold</code></td>
-<td>冻结当前坐标图</td>
-</tr>
-<tr>
-<td><code>legend</code></td>
-<td>通过鼠标图例位置</td>
-</tr>
-<tr>
-<td><code>refresh</code></td>
-<td>重新绘制当前图形窗口</td>
-</tr>
-<tr>
-<td><code>set</code></td>
-<td>指定诸如轴的对象的属性</td>
-</tr>
-<tr>
-<td><code>subplot</code></td>
-<td>在子窗口中创建图</td>
-</tr>
-<tr>
-<td><code>text</code></td>
-<td>在图开放置字符串</td>
-</tr>
-<tr>
-<td><code>bar</code></td>
-<td>创建条形图</td>
-</tr>
-<tr>
-<td><code>loglog</code></td>
-<td>创建日志记录图</td>
-</tr>
-<tr>
-<td><code>polar</code></td>
-<td>创建极坐标图</td>
-</tr>
-<tr>
-<td><code>semilogx</code></td>
-<td>创建半标记图(对数横坐标)</td>
-</tr>
-<tr>
-<td><code>semilogy</code></td>
-<td>创建半标记图(对数纵坐标)</td>
-</tr>
-</tbody>
-</table>
+        <h2 id="简述瀑布模型、增量模型、螺旋模型（含原型方法），并分析优缺点（从项目特点、风险特征、人力资源利用角度思考）"><a href="#简述瀑布模型、增量模型、螺旋模型（含原型方法），并分析优缺点（从项目特点、风险特征、人力资源利用角度思考）" class="headerlink" title="简述瀑布模型、增量模型、螺旋模型（含原型方法），并分析优缺点（从项目特点、风险特征、人力资源利用角度思考）"></a>简述瀑布模型、增量模型、螺旋模型（含原型方法），并分析优缺点（从项目特点、风险特征、人力资源利用角度思考）</h2><a id="more"></a>
+<h4 id="瀑布模型"><a href="#瀑布模型" class="headerlink" title="瀑布模型"></a>瀑布模型</h4><ul>
+<li><p>简述</p>
+<p>瀑布模型是一种相对线性的顺序设计方法，适用于某些工程设计领域。 在软件开发中，它往往是较少迭代和灵活的方法之一。瀑布模型采用结构化的分析与设计方法将逻辑实现与物理实现分开。将软件生命周期划分为制定计划、需求分析、软件设计、程序编写、软件测试和运行维护等六个基本活动，并且规定了它们自上而下、相互衔接的固定次序，如同瀑布流水，逐级下落。</p>
+<p><img src="/2019/04/13/系统分析与设计-三/D:/Blog\blog\source\_posts\系统分析与设计-三\525px-Waterfall_model.svg.png" alt></p>
+<p>优点</p>
+<ol>
+<li>降低软件开发的复杂程度，提高软件开发过程的透明性，提高<br>软件开发过程的可管理性。</li>
+<li>推迟软件实现，强调在软件实现前必须进行分析和设计工作。</li>
+<li>以项目的阶段评审和文档控制为手段有效地对整个开发过程进<br>行指导，保证了阶段之间的正确衔接，能够及时发现并纠正开<br>发过程中存在的缺陷，使产品达到预期的质量要求。</li>
+</ol>
+</li>
+<li><p>缺点</p>
+<ol>
+<li>强调过程活动的线性顺序。</li>
+<li>缺乏灵活性，尤其无法解决软件需求不明确或不准确的问题。</li>
+<li>风险控制能力较弱。</li>
+<li>瀑布模型中的软件活动是文档驱动的，当阶段之间规定过多的<br>文档时，会极大地增加系统的工作量。</li>
+<li>管理人员如果仅仅以文档的完成情况来评估项目完成进度，往<br>往会产生错误的结论。</li>
+</ol>
+</li>
+</ul>
+<h4 id="增量模型"><a href="#增量模型" class="headerlink" title="增量模型"></a>增量模型</h4><ul>
+<li><p>简述</p>
+<p>增量模型逐步应用瀑布模型。该系列版本称为“增量”，每个增量都为客户提供更多功能。 在第一次增量之后，交付核心产品，该产品已经可以由客户使用。 根据客户反馈，为下一个增量制定计划，并相应地进行修改。 此过程继续，递增递增，直到交付完整的产品。</p>
+</li>
+<li><p>优点</p>
+<ol>
+<li>增强客户对系统的信心；因为迭代需要以客户的反馈为基础。</li>
+<li>降低系统失败风险。</li>
+<li>提高系统可靠性。</li>
+<li>提高系统的稳定性和可维护性。</li>
+</ol>
+</li>
+<li><p>缺点</p>
+<ol>
+<li>建立初始模型时，作为增量基础的基本业务服务的确定有一定<br>难度。</li>
+<li>增量粒度难以选择。</li>
+</ol>
+</li>
+</ul>
+<h4 id="螺旋模型"><a href="#螺旋模型" class="headerlink" title="螺旋模型"></a>螺旋模型</h4><ul>
+<li><p>简述</p>
+<p>螺旋模型是风险驱动的软件开发过程模型。 基于给定项目的独特风险模式，螺旋模型指导团队采用一个或多个过程模型的元素，例如增量，瀑布或进化原型。螺旋模型结合了瀑布模型和快速原型方法，将瀑布<br>模型的多个阶段转化到多个迭代过程中，以降低项目的风险。一般螺旋模型的每一次迭代都包含六个步骤：</p>
+<ul>
+<li>决定目标、替代方案和约束条件。</li>
+<li>识别和解决项目的风险。</li>
+<li>评估技术方案和替代方案。</li>
+<li>开发本次迭代的交付物，并验证迭代产出的正确性。</li>
+<li>计划下一次迭代。</li>
+<li>提交下一次迭代的步骤和方案。</li>
+</ul>
+<p><img src="/2019/04/13/系统分析与设计-三/D:/Blog\blog\source\_posts\系统分析与设计-三\Snipaste_2019-04-13_20-15-57.jpg" alt></p>
+</li>
+<li><p>优点</p>
+<ol>
+<li>软件设计的各个过程都比较灵活，可以方便需求的变更。</li>
+<li>客户始终参与每个阶段的开发,保证了项目不偏离正确方向以及项目的可控性。</li>
+<li>随着项目推进,客户始终掌握项目的最新信息 , 从而他或她能够和管理层有效地交互。</li>
+<li>以小的分段来构建大型系统,使成本计算变得简单容易。</li>
+</ol>
+</li>
+<li><p>缺点</p>
+<ol>
+<li>螺旋模型强调风险分析，但说服外部客户接受和相信分析<br>结果并做出相关反应并不容易。</li>
+<li>风险分析需要耗费相当的成本，失误的风险分析可能带来更大的风险。</li>
+</ol>
+</li>
+</ul>
+<h2 id="简述统一过程三大特点，与面向对象的方法有什么关系？"><a href="#简述统一过程三大特点，与面向对象的方法有什么关系？" class="headerlink" title="简述统一过程三大特点，与面向对象的方法有什么关系？"></a>简述统一过程三大特点，与面向对象的方法有什么关系？</h2><ul>
+<li><p>统一过程三大特点</p>
+<ol>
+<li><p>用例和风险驱动。</p>
+<p>统一过程一般由UML方法和工具支持，用例是捕获需求的方法。也就是这个过程是以客户为中心，通过客户看系统功。，</p>
+</li>
+<li><p>以体系结构为核心。</p>
+<p>统一过程方法实际上就是开发和演进一个健壮的系统体系结构，体系结构描述了系统的整体框架：如何把系统划分成组件以及这些组件如何进行交互和部署在硬件上。组件使重用成为可能，系统可以由组件组成。基于独立的、可替换的、模块化组件的体系结构有助于管理复杂性，提高重用率。统一过程描述了如何设计一个有弹性的、能适应变化的、易于理解的、有助于重用的软件体系结构。</p>
+</li>
+<li><p>迭代和增量开发。</p>
+<p>统一过程迭代使得把大的项目划分为小的功能块，提供系统的功能块或者增量，最终产生完整的功能系统。每一次迭代都经历一次完整的软件生命周期。</p>
+</li>
+</ol>
+</li>
+<li><p>与面向对象方法的关系</p>
+<p>统一软件开发过程是一种基于面向对象技术的软件开发过程。UP一般由UML方法和工具支持。</p>
+</li>
+</ul>
+<h2 id="简述统一过程四个阶段的划分准则是什么？每个阶段关键的里程碑是什么？"><a href="#简述统一过程四个阶段的划分准则是什么？每个阶段关键的里程碑是什么？" class="headerlink" title="简述统一过程四个阶段的划分准则是什么？每个阶段关键的里程碑是什么？"></a>简述统一过程四个阶段的划分准则是什么？每个阶段关键的里程碑是什么？</h2><ul>
+<li><p>统一过程四个阶段的划分标准</p>
+<p>统一过程的软件生命周期按照时间维度划分可以分为四个阶段，分别是初始阶段(Inception)、细化阶段(Elaboration)、构造阶段(Construction)和交付阶段(Transition)。每个阶段结束于一个主要的里程碑(Major Milestones)；每个阶段本质上是两个里程碑之间的时间跨度。在每个阶段的结尾执行一次评估以确定这个阶段的目标是否已经满足。如果评估结果令人满意的话，可以允许项目进入下一个阶段。</p>
+</li>
+<li><p>每个阶段的里程碑</p>
+<ul>
+<li><p>初始阶段</p>
+<p>生命周期目标里程碑，评价项目基本的生存能力。</p>
+</li>
+<li><p>细化阶段</p>
+<p>生命周期结构里程碑，为系统的结构建立了管理基准并使项目小组能够在构建阶段中进行衡量。检验详细的系统目标和范围、结构的选择以及主要风险的解决方案。</p>
+</li>
+<li><p>构造阶段</p>
+<p>初始功能里程碑，决定了产品是否可以在测试环境中进行部署。此刻，要确定软件、环境、用户是否可以开始系统的运作。此时的产品版本也常被称为“beta”版。</p>
+</li>
+<li><p>交付阶段</p>
+<p>产品发布里程碑。此时，决定是否目标已达到或开始另一个周期。在许多情况下，里程碑会与下一个周期的初始阶段相重叠。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="软件企业为什么能按固定节奏生产、固定周期发布软件产品？它给企业项目管理带来哪些好处？"><a href="#软件企业为什么能按固定节奏生产、固定周期发布软件产品？它给企业项目管理带来哪些好处？" class="headerlink" title="软件企业为什么能按固定节奏生产、固定周期发布软件产品？它给企业项目管理带来哪些好处？"></a>软件企业为什么能按固定节奏生产、固定周期发布软件产品？它给企业项目管理带来哪些好处？</h2><ul>
+<li><p>原因</p>
+<p>因为UP为企业按固定节奏生产，固定周期发布软件产品提供了依据，UP按照时间维度划分可以分为四个阶段，不同阶段迭代的里程碑与目标也是明确的，管理者将开发组织成一系列固定的短期小项目，并且根据实际情况对项目进行快速反馈和调整，从而为固定项目周期提供了可能。</p>
+</li>
+<li><p>好处</p>
+<ul>
+<li>每个迭代产品在增量（制品是可运行的），利于及时交付使用并反馈。</li>
+<li>固定的迭代周期（等量的人月），利于量化团队/个人生产率。</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
@@ -932,7 +578,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Matlab/" rel="tag"># Matlab</a>
+            <a href="/tags/系统分析与设计/" rel="tag"># 系统分析与设计</a>
           
         </div>
       
@@ -945,8 +591,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/02/2019-2-2-matlab(七)/" rel="next" title="Matlab教程(七)">
-                <i class="fa fa-chevron-left"></i> Matlab教程(七)
+              <a href="/2019/04/06/系统分析与设计【作业二】/" rel="next" title="系统分析与设计【作业二】">
+                <i class="fa fa-chevron-left"></i> 系统分析与设计【作业二】
               </a>
             
           </div>
@@ -954,10 +600,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/02/02/2019-2-2-matlab(六)/" rel="prev" title="Matlab教程(六)">
-                Matlab教程(六) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -1160,7 +802,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Matlab控制台管理"><span class="nav-number">1.</span> <span class="nav-text">Matlab控制台管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#管理命令"><span class="nav-number">1.1.</span> <span class="nav-text">管理命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Matlab系统命令"><span class="nav-number">1.2.</span> <span class="nav-text">Matlab系统命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输入输出命令"><span class="nav-number">1.3.</span> <span class="nav-text">输入输出命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#向量，矩阵和数组命令"><span class="nav-number">1.4.</span> <span class="nav-text">向量，矩阵和数组命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绘图命令"><span class="nav-number">1.5.</span> <span class="nav-text">绘图命令</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简述瀑布模型、增量模型、螺旋模型（含原型方法），并分析优缺点（从项目特点、风险特征、人力资源利用角度思考）"><span class="nav-number">1.</span> <span class="nav-text">简述瀑布模型、增量模型、螺旋模型（含原型方法），并分析优缺点（从项目特点、风险特征、人力资源利用角度思考）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#瀑布模型"><span class="nav-number">1.0.1.</span> <span class="nav-text">瀑布模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#增量模型"><span class="nav-number">1.0.2.</span> <span class="nav-text">增量模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#螺旋模型"><span class="nav-number">1.0.3.</span> <span class="nav-text">螺旋模型</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#简述统一过程三大特点，与面向对象的方法有什么关系？"><span class="nav-number">2.</span> <span class="nav-text">简述统一过程三大特点，与面向对象的方法有什么关系？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简述统一过程四个阶段的划分准则是什么？每个阶段关键的里程碑是什么？"><span class="nav-number">3.</span> <span class="nav-text">简述统一过程四个阶段的划分准则是什么？每个阶段关键的里程碑是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#软件企业为什么能按固定节奏生产、固定周期发布软件产品？它给企业项目管理带来哪些好处？"><span class="nav-number">4.</span> <span class="nav-text">软件企业为什么能按固定节奏生产、固定周期发布软件产品？它给企业项目管理带来哪些好处？</span></a></li></div>
             
 
           </div>
