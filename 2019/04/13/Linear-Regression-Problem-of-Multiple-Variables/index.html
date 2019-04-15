@@ -445,8 +445,11 @@
       
         <p>从我们<a href="https://vilin.club/2019/04/13/Linear-Regression-Problem-of-One-Variable/" target="_blank" rel="noopener">上次介绍的问题</a>进行延申，同样是房子价格的预测，但我们此时的特征从一个变成多个特征，也就是变量从一个变成了多个，例如其他特征有面积，房间个数，楼层，房龄等。我们用一个列向量代表这些特征：</p>
 <a id="more"></a>
-<p><img src="/2019/04/13/Linear-Regression-Problem-of-Multiple-Variables/20190317204946304.png" alt><br>此时，我们假设的模型也要相应做出变化，其中$x_1 - x_4$为features，$\theta_0$对应的是偏置bias。<br><img src="/2019/04/13/Linear-Regression-Problem-of-Multiple-Variables/20190317205027495.png" alt><br>为了方便计算，也就是使得两个列向量可以进行运算，我们定义<br>$$x_0 = 1$$<br>这样一来，模型可以写成<br><img src="/2019/04/13/Linear-Regression-Problem-of-Multiple-Variables/20190317205232238.png" alt><br>同样，我们定义损失函数，损失函数应该能够很好地代表模型的好坏，<br><img src="/2019/04/13/Linear-Regression-Problem-of-Multiple-Variables/20190317205322887.png" alt><br>目标是使得损失函数取得最小值。<br>使用梯度下降更新参数<br><img src="/2019/04/13/Linear-Regression-Problem-of-Multiple-Variables/20190317205444308.png" alt><br>化简<br><img src="/2019/04/13/Linear-Regression-Problem-of-Multiple-Variables/20190317205515742.png" alt><br>对于多个变量的线性回归问题，做到这里你可能会发现结果与我们预期相差得比较远或者收敛得比较慢，我们需要多数据进行一些预处理，试想一下，如果维度之间的数量级不同，梯度下降的方向就有可能受到比较大的影响，在没有对数据进行预处理时，<br><img src="/2019/04/13/Linear-Regression-Problem-of-Multiple-Variables/20190317205839580.png" alt><br>进行数据预处理以后<br><img src="/2019/04/13/Linear-Regression-Problem-of-Multiple-Variables/20190317205903766.png" alt><br>下面提供几种对数据进行预处理的操作<br>$$x_i = \frac{x_i - u_i}{s_i}$$<br>其中$u_i$是数据集的均值，$s_i$是$x_i$与数据集中最小值的差，$s_i$也可以是标准差。<br>$$x = \frac{x - min}{max = min}​$$</p>
-<p>上面的做法是一般的做法，但我们也应该会想，这整个过程我们所有的数据都已经知道了，能不能通过列等式求解呢，答案是可以的，但这种方法存在很大的问题，对于矩阵<br><img src="/2019/04/13/Linear-Regression-Problem-of-Multiple-Variables/20190317211136757.png" alt><br>我们列出的表达式是<br>$$X\theta = y​$$<br>推导如下：<br>$X^TX\theta = yX^T =&gt; \theta = (X^TX)X^Ty​$<br>但在数学证明当中，$(XX^T)^{-1}​$的计算是有误差的，只有满秩的矩阵才有逆，我们在编程中只能通过求虚逆来计算，所以误差比较大。</p>
+<p><img src="/2019/04/13/Linear-Regression-Problem-of-Multiple-Variables/20190317204946304.png" alt><br>此时，我们假设的模型也要相应做出变化，其中$x_1 - x_4$为features，$\theta_0$对应的是偏置bias。<br><img src="/2019/04/13/Linear-Regression-Problem-of-Multiple-Variables/20190317205027495.png" alt><br>为了方便计算，也就是使得两个列向量可以进行运算，我们定义</p>
+<script type="math/tex; mode=display">x_0 = 1</script><p>这样一来，模型可以写成<br><img src="/2019/04/13/Linear-Regression-Problem-of-Multiple-Variables/20190317205232238.png" alt><br>同样，我们定义损失函数，损失函数应该能够很好地代表模型的好坏，<br><img src="/2019/04/13/Linear-Regression-Problem-of-Multiple-Variables/20190317205322887.png" alt><br>目标是使得损失函数取得最小值。<br>使用梯度下降更新参数<br><img src="/2019/04/13/Linear-Regression-Problem-of-Multiple-Variables/20190317205444308.png" alt><br>化简<br><img src="/2019/04/13/Linear-Regression-Problem-of-Multiple-Variables/20190317205515742.png" alt><br>对于多个变量的线性回归问题，做到这里你可能会发现结果与我们预期相差得比较远或者收敛得比较慢，我们需要多数据进行一些预处理，试想一下，如果维度之间的数量级不同，梯度下降的方向就有可能受到比较大的影响，在没有对数据进行预处理时，<br><img src="/2019/04/13/Linear-Regression-Problem-of-Multiple-Variables/20190317205839580.png" alt><br>进行数据预处理以后<br><img src="/2019/04/13/Linear-Regression-Problem-of-Multiple-Variables/20190317205903766.png" alt><br>下面提供几种对数据进行预处理的操作</p>
+<script type="math/tex; mode=display">x_i = \frac{x_i - u_i}{s_i}</script><p>其中$u_i$是数据集的均值，$s_i$是$x_i$与数据集中最小值的差，$s_i$也可以是标准差。</p>
+<script type="math/tex; mode=display">x = \frac{x - min}{max = min}​</script><p>上面的做法是一般的做法，但我们也应该会想，这整个过程我们所有的数据都已经知道了，能不能通过列等式求解呢，答案是可以的，但这种方法存在很大的问题，对于矩阵<br><img src="/2019/04/13/Linear-Regression-Problem-of-Multiple-Variables/20190317211136757.png" alt><br>我们列出的表达式是</p>
+<script type="math/tex; mode=display">X\theta = y​</script><p>推导如下：<br>$X^TX\theta = yX^T =&gt; \theta = (X^TX)X^Ty​$<br>但在数学证明当中，$(XX^T)^{-1}​$的计算是有误差的，只有满秩的矩阵才有逆，我们在编程中只能通过求虚逆来计算，所以误差比较大。</p>
 
       
     </div>
@@ -877,6 +880,13 @@
   
 
   
+  
+
+  
+  
+
+  
+
 
   
 

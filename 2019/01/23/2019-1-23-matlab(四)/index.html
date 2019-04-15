@@ -468,6 +468,7 @@
 <h2 id="多行命令"><a href="#多行命令" class="headerlink" title="多行命令"></a>多行命令</h2><p>与python类似，如果需要用到多行的命令，可以用三个实心点扩展到另一行。</p>
 <hr>
 <h2 id="格式化输出"><a href="#格式化输出" class="headerlink" title="格式化输出"></a>格式化输出</h2><p>默认情况下MATLAB输出的格式是短格式，即数据是四位小数位数。但我们可以通过format来进行格式化输出。</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -502,6 +503,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; a = <span class="number">10</span>;</span><br><span class="line">&gt;&gt; a / <span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">ans</span> =</span><br><span class="line"></span><br><span class="line">    <span class="number">3.3333</span></span><br><span class="line"></span><br><span class="line">&gt;&gt; format long</span><br><span class="line">&gt;&gt; a / <span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">ans</span> =</span><br><span class="line"></span><br><span class="line">   <span class="number">3.333333333333333</span></span><br><span class="line"></span><br><span class="line">&gt;&gt; format bank</span><br><span class="line">&gt;&gt; a / <span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">ans</span> =</span><br><span class="line"></span><br><span class="line">          <span class="number">3.33</span></span><br><span class="line"></span><br><span class="line">&gt;&gt; format <span class="built_in">rat</span></span><br><span class="line">&gt;&gt; <span class="number">0.33</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">ans</span> =</span><br><span class="line"></span><br><span class="line">      <span class="number">33</span>/<span class="number">100</span></span><br></pre></td></tr></table></figure>
 <hr>
 <h2 id="初始化向量"><a href="#初始化向量" class="headerlink" title="初始化向量"></a>初始化向量</h2><h3 id="行向量"><a href="#行向量" class="headerlink" title="行向量"></a>行向量</h3><p>行向量用空格或者逗号分割元素，向量之间可以相加</p>
@@ -967,6 +969,13 @@
   
 
   
+  
+
+  
+  
+
+  
+
 
   
 

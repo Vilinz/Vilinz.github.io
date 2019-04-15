@@ -452,7 +452,7 @@
 <li><p>在命令行输入表达式</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; <span class="number">1</span> + <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">ans</span> =</span><br><span class="line"></span><br><span class="line">     <span class="number">3</span></span><br></pre></td></tr></table></figure>
 <p>MATLAB可以用于计算各种公式算式，例如乘，次幂，正弦等等。同时他提供了一些特殊的符号表示特定的值。</p>
-<p>| pi      | π                 |<br>| :—— | —————– |<br>| <code>eps</code>   | 浮点精度精度。    |<br>| Inf     | ∞                 |<br>| <code>ans</code>   | 最近的回应/回答。 |<br>| <code>i</code>,<code>j</code> | 虚构单位<code>√-1</code>。   |<br>| .Nan    | 非数字            |</p>
+<p>| pi      | π                 |<br>| :——— | ————————- |<br>| <code>eps</code>   | 浮点精度精度。    |<br>| Inf     | ∞                 |<br>| <code>ans</code>   | 最近的回应/回答。 |<br>| <code>i</code>,<code>j</code> | 虚构单位<code>√-1</code>。   |<br>| .Nan    | 非数字            |</p>
 </li>
 <li><p>如果你的输入在输入的时候不需要马上产生输出，请在表达式后面加分号。</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; a = <span class="number">2</span>;</span><br><span class="line">&gt;&gt; a + <span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">ans</span> =</span><br><span class="line"></span><br><span class="line">     <span class="number">5</span></span><br><span class="line"></span><br><span class="line">&gt;&gt;</span><br></pre></td></tr></table></figure>
@@ -462,10 +462,10 @@
 <p>用%{…%}进行多行注释。</p>
 </li>
 <li><p>常用运算符</p>
-<p>| 运算符 | 说明                   |<br>| —— | ———————- |<br>| <code>+</code>    | 相加; 加法运算符。     |<br>| <code>-</code>    | 相减; 减法运算符。     |<br>| <code>*</code>    | 标量和矩阵乘法运算符。 |<br>| <code>.*</code>   | 阵列乘法运算符。       |<br>| <code>^</code>    | 标量和矩阵求幂运算符。 |<br>| <code>.^</code>   | 阵列求幂运算符。       |<br>| <code>\</code>    | 左除法运算符。         |<br>| <code>/</code>    | 右除法运算符。         |<br>| <code>.\</code>   | 阵列左除法运算符。     |<br>| <code>./</code>   | 右除法运算符。         |</p>
+<p>| 运算符 | 说明                   |<br>| ——— | ——————————— |<br>| <code>+</code>    | 相加; 加法运算符。     |<br>| <code>-</code>    | 相减; 减法运算符。     |<br>| <code>*</code>    | 标量和矩阵乘法运算符。 |<br>| <code>.*</code>   | 阵列乘法运算符。       |<br>| <code>^</code>    | 标量和矩阵求幂运算符。 |<br>| <code>.^</code>   | 阵列求幂运算符。       |<br>| <code>\</code>    | 左除法运算符。         |<br>| <code>/</code>    | 右除法运算符。         |<br>| <code>.\</code>   | 阵列左除法运算符。     |<br>| <code>./</code>   | 右除法运算符。         |</p>
 </li>
 <li><p>特殊符号</p>
-<p>| 符号  | 说明                                         |<br>| —– | ——————————————– |<br>| <code>:</code>   | 冒号; 生成规则间隔的元素，并表示整个行或列。 |<br>| <code>( )</code> | 括号; 包含函数参数和数组索引; 覆盖优先级。   |<br>| <code>[ ]</code> | 括号; 罩住阵列元素。                         |<br>| <code>.</code>   | 小数点。                                     |<br>| <code>…</code>   | 省略号; 行连续运算符                         |<br>| <code>,</code>   | 逗号; 分隔一行中的语句和元素                 |<br>| <code>;</code>   | 分号; 分隔列并抑制输出显示。                 |<br>| <code>%</code>   | 百分号;指定一个注释并指定格式。              |<br>| <code>_</code>   | 引用符号和转置运算符。                       |<br>| <code>._</code>  | 非共轭转置运算符。                           |<br>| <code>=</code>   | 赋值运算符。                                 |</p>
+<p>| 符号  | 说明                                         |<br>| ——- | —————————————————————— |<br>| <code>:</code>   | 冒号; 生成规则间隔的元素，并表示整个行或列。 |<br>| <code>( )</code> | 括号; 包含函数参数和数组索引; 覆盖优先级。   |<br>| <code>[ ]</code> | 括号; 罩住阵列元素。                         |<br>| <code>.</code>   | 小数点。                                     |<br>| <code>…</code>   | 省略号; 行连续运算符                         |<br>| <code>,</code>   | 逗号; 分隔一行中的语句和元素                 |<br>| <code>;</code>   | 分号; 分隔列并抑制输出显示。                 |<br>| <code>%</code>   | 百分号;指定一个注释并指定格式。              |<br>| <code>_</code>   | 引用符号和转置运算符。                       |<br>| <code>._</code>  | 非共轭转置运算符。                           |<br>| <code>=</code>   | 赋值运算符。                                 |</p>
 </li>
 <li><p>命名规则</p>
 <p>变量由字母后跟任意数字的字母，数字或者下划线组成，是大小写敏感的语言。</p>
@@ -521,8 +521,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/02/02/2019-2-2-matlab(七)/" rel="prev" title="Matlab教程(七)">
-                Matlab教程(七) <i class="fa fa-chevron-right"></i>
+              <a href="/2019/02/02/2019-2-2-matlab(六)/" rel="prev" title="Matlab教程(六)">
+                Matlab教程(六) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -931,6 +931,13 @@
   
 
   
+  
+
+  
+  
+
+  
+
 
   
 

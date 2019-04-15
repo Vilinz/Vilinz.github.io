@@ -450,9 +450,14 @@
         <h2 id="逻辑回归定义"><a href="#逻辑回归定义" class="headerlink" title="逻辑回归定义"></a>逻辑回归定义</h2><p>逻辑回归（Logistic Regression）是一种用于解决二分类（0 or 1）问题的机器学习方法，用于估计某种事物的可能性。比如某用户购买某商品的可能性，某病人患有某种疾病的可能性，垃圾邮件的分类等等，以及某广告被用户点击的可能性等。但这里的可能性与数学上的概率不一样。</p>
 <a id="more"></a>
 <h2 id="问题引入"><a href="#问题引入" class="headerlink" title="问题引入"></a>问题引入</h2><p>对于肿瘤是恶性还是良性的分类，我们得出一下模型<br><img src="/2019/04/14/Logistic-Regression/20190318101520783.png" alt><br>从上图可以看到，在现在的情况下，当$h_\theta(x) &gt;= 0.5​$的时候，我们认为肿瘤是恶性的，这里我们会得到完全一样的结果，正确率达到100%。但是当我们的数据变成下图这样的时候<br><img src="/2019/04/14/Logistic-Regression/20190318101906593.png" alt><br>我们仍然认为0.5是一个阈值，那么此时模型对结果的预测的性能将会表现得很差。说明我们不能用简单的直线对数据进行分类。</p>
-<h2 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h2><p>分类问题我们可以将其转化为数值的计算问题，我们根据计算得到的数值对数据进行分类，我们要求<br>$$0 &lt;= h_\theta(x) &lt;= 1$$<br>从而我们认为当$0 &lt;= h_\theta(x) &lt; 0.5$的时候，$y = 0$;当$0.5 &lt;= h_\theta(x) &lt;= 1$的时候，$y = 1$;这样便将数据分为两类。满足条件的逻辑回归函数为<br>$$g(z) = \frac{1}{1 + e^{-z}}$$<br>从而<br>$$h_\theta(x) = g(\theta^Tx) = \frac{1}{1 + e^{-\theta^Tx}}$$<br><img src="/2019/04/14/Logistic-Regression/20190318103327907.png" alt><br>我们最后分类的根据是<br><img src="/2019/04/14/Logistic-Regression/20190318103515399.png" alt><br>对应特征变量来说，其几何意义是非常明显的<br><img src="/2019/04/14/Logistic-Regression/20190318103723894.png" alt></p>
-<h2 id="逻辑函数的推导"><a href="#逻辑函数的推导" class="headerlink" title="逻辑函数的推导"></a>逻辑函数的推导</h2><p>要理解下面的过程，要对概率的知识有一定的理解.<br>我们用到的逻辑函数为<br>$$y = \frac{1}{1 + e^{-z}}$$<br><img src="/2019/04/14/Logistic-Regression/201903181045143.png" alt><br>若y &gt;= 0.5被归为1的类，y &lt; 0.5被归为0这类，根据概率论知识，有<br>$$P(Y = 1|X) = \frac{e^z}{1 + e^z}$$<br>$$P(Y = 0|X) = \frac{1}{1 + e^z}$$<br>所以<br>$$log\frac{P(Y = 1|X)}{1 - P(Y = 1|X)} = z =&gt; \frac{p}{1 - p} = e^z =&gt; \frac{1 - p}{p} = e^{-z} =&gt; p = \frac{1}{1 + e^{-z}}$$</p>
-<h2 id="损失函数的设置"><a href="#损失函数的设置" class="headerlink" title="损失函数的设置"></a>损失函数的设置</h2><p>我们这里的损失函数与线性回归的损失函数设置有很大的不同，由于我们的范围是在0-1之间的，我们使用的损失函数为<br><img src="/2019/04/14/Logistic-Regression/20190318105539103.png" alt><br>理由如下，当y = 1的时候，函数图像为<br><img src="/2019/04/14/Logistic-Regression/20190318105624338.png" alt><br>我们看一下是否符号逻辑，我们要求在预测正确的时候cost要小一些，预测错误的时候cost要大一些，上图我们正确的结果是1，如果我们预测的是0，那么cost的计算相应会大一些，同理当y = 0也是一样<br><img src="/2019/04/14/Logistic-Regression/2019031810583562.png" alt><br>两个函数合并可以写成<br><img src="/2019/04/14/Logistic-Regression/20190318105908511.png" alt><br>最后损失函数的形式为<br><img src="/2019/04/14/Logistic-Regression/20190318105942678.png" alt></p>
+<h2 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h2><p>分类问题我们可以将其转化为数值的计算问题，我们根据计算得到的数值对数据进行分类，我们要求</p>
+<script type="math/tex; mode=display">0 <= h_\theta(x) <= 1</script><p>从而我们认为当$0 &lt;= h_\theta(x) &lt; 0.5$的时候，$y = 0$;当$0.5 &lt;= h_\theta(x) &lt;= 1$的时候，$y = 1$;这样便将数据分为两类。满足条件的逻辑回归函数为</p>
+<script type="math/tex; mode=display">g(z) = \frac{1}{1 + e^{-z}}</script><p>从而</p>
+<script type="math/tex; mode=display">h_\theta(x) = g(\theta^Tx) = \frac{1}{1 + e^{-\theta^Tx}}</script><p><img src="/2019/04/14/Logistic-Regression/20190318103327907.png" alt><br>我们最后分类的根据是<br><img src="/2019/04/14/Logistic-Regression/20190318103515399.png" alt><br>对应特征变量来说，其几何意义是非常明显的<br><img src="/2019/04/14/Logistic-Regression/20190318103723894.png" alt></p>
+<h2 id="逻辑函数的推导"><a href="#逻辑函数的推导" class="headerlink" title="逻辑函数的推导"></a>逻辑函数的推导</h2><p>要理解下面的过程，要对概率的知识有一定的理解.<br>我们用到的逻辑函数为</p>
+<script type="math/tex; mode=display">y = \frac{1}{1 + e^{-z}}</script><p><img src="/2019/04/14/Logistic-Regression/201903181045143.png" alt><br>若y &gt;= 0.5被归为1的类，y &lt; 0.5被归为0这类，根据概率论知识，有</p>
+<script type="math/tex; mode=display">P(Y = 1|X) = \frac{e^z}{1 + e^z}</script><script type="math/tex; mode=display">P(Y = 0|X) = \frac{1}{1 + e^z}</script><p>所以</p>
+<script type="math/tex; mode=display">log\frac{P(Y = 1|X)}{1 - P(Y = 1|X)} = z => \frac{p}{1 - p} = e^z => \frac{1 - p}{p} = e^{-z} => p = \frac{1}{1 + e^{-z}}</script><h2 id="损失函数的设置"><a href="#损失函数的设置" class="headerlink" title="损失函数的设置"></a>损失函数的设置</h2><p>我们这里的损失函数与线性回归的损失函数设置有很大的不同，由于我们的范围是在0-1之间的，我们使用的损失函数为<br><img src="/2019/04/14/Logistic-Regression/20190318105539103.png" alt><br>理由如下，当y = 1的时候，函数图像为<br><img src="/2019/04/14/Logistic-Regression/20190318105624338.png" alt><br>我们看一下是否符号逻辑，我们要求在预测正确的时候cost要小一些，预测错误的时候cost要大一些，上图我们正确的结果是1，如果我们预测的是0，那么cost的计算相应会大一些，同理当y = 0也是一样<br><img src="/2019/04/14/Logistic-Regression/2019031810583562.png" alt><br>两个函数合并可以写成<br><img src="/2019/04/14/Logistic-Regression/20190318105908511.png" alt><br>最后损失函数的形式为<br><img src="/2019/04/14/Logistic-Regression/20190318105942678.png" alt></p>
 <h2 id="梯度下降训练"><a href="#梯度下降训练" class="headerlink" title="梯度下降训练"></a>梯度下降训练</h2><p>对每个参数求导，我们最后得到<br><img src="/2019/04/14/Logistic-Regression/20190318110047281.png" alt></p>
 <h2 id="延申"><a href="#延申" class="headerlink" title="延申"></a>延申</h2><p>在特征平面表现为非线性的时候，我们的模型要做出变化<br><img src="/2019/04/14/Logistic-Regression/20190318105349404.png" alt></p>
 
@@ -911,6 +916,13 @@
   
 
   
+  
+
+  
+  
+
+  
+
 
   
 

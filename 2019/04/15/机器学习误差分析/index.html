@@ -116,7 +116,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/04/15/机器学习误差分析/Snipaste_2019-04-15_10-31-26.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/04/15/机器学习误差分析/Snipaste_2019-04-15_10-57-40.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/04/15/机器学习误差分析/Snipaste_2019-04-15_10-59-26.jpg">
-<meta property="og:updated_time" content="2019-04-15T03:05:08.825Z">
+<meta property="og:updated_time" content="2019-04-15T13:24:40.154Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习误差分析">
 <meta name="twitter:description" content="在机器学习当中，误差来着两个方面，一个是Bias，另外一个是Variance。对于一个训练好的模型，清楚地知道误差的来源，我们才知道从那些方面对模型进行改进。">
@@ -380,7 +380,7 @@
                 
               
 
-              <time title="创建时间：2019-04-15 09:33:22 / 修改时间：11:05:08" itemprop="dateCreated datePublished" datetime="2019-04-15T09:33:22+08:00">2019-04-15</time>
+              <time title="创建时间：2019-04-15 09:33:22 / 修改时间：21:24:40" itemprop="dateCreated datePublished" datetime="2019-04-15T09:33:22+08:00">2019-04-15</time>
             
 
             
@@ -448,7 +448,7 @@
 <a id="more"></a>
 <h2 id="均值与方差"><a href="#均值与方差" class="headerlink" title="均值与方差"></a>均值与方差</h2><p>在理解Bias和Variance之前，我们先对均值mean与方差Variance有充分的理解，我们假设真正的均值是$\mu$，方差是$\sigma^2$，我们取出一组数${x^1, x^2,…x^n}$求出均值和方差，我们有以下结论：</p>
 <ul>
-<li><p>对于特定组求得的均值，求得的均值不等于真正的均值，即：$$m = \frac{1}{N}\sum_{n=1}^Nx^n != \mu​$$</p>
+<li><p>对于特定组求得的均值，求得的均值不等于真正的均值，即：<script type="math/tex">m = \frac{1}{N}\sum_{n=1}^Nx^n != \mu​</script></p>
 </li>
 <li><p>但对于多个均值求平均，我们得到的均值接近真正的均值，这样我们就说这个值是unbiased的。</p>
 <p><img src="/2019/04/15/机器学习误差分析/Snipaste_2019-04-15_09-49-34.jpg" alt></p>
@@ -456,18 +456,15 @@
 <p><img src="/2019/04/15/机器学习误差分析/Snipaste_2019-04-15_09-54-19.jpg" alt></p>
 </li>
 <li><p>方差的公式为$Var(m) = \frac{\sigma^2}{N}$，可以看到，方差的大小与N的大小有关，经过公式</p>
-<p>$$s^2 = \frac{1}{N}\sum_{n=1}^N(x^n - m)^2$$</p>
-<p>我们对方差求均值，得：</p>
-<p>$$E[s^2] = \frac{N - 1}{N}\mu^2 != \mu^2​$$</p>
-<p>由于得出的数与真正的方差有差距，我们就是这个数值是Biased的，图表示为</p>
+<script type="math/tex; mode=display">s^2 = \frac{1}{N}\sum_{n=1}^N(x^n - m)^2</script><p>我们对方差求均值，得：</p>
+<script type="math/tex; mode=display">E[s^2] = \frac{N - 1}{N}\mu^2 != \mu^2​</script><p>由于得出的数与真正的方差有差距，我们就是这个数值是Biased的，图表示为</p>
 <p><img src="/2019/04/15/机器学习误差分析/Snipaste_2019-04-15_10-05-11.jpg" alt></p>
 </li>
 </ul>
 <h2 id="直观表示"><a href="#直观表示" class="headerlink" title="直观表示"></a>直观表示</h2><p>通过我们上面对均值和方差计算过程的分析，我们基本理解了unbaised和biased的区别，简单地说，Bias就是求出的平均的均值与真正的均值有差别，而Variance就是我们一般理解的方差，就是样本点与中心点的发散程度。用图直观表示就是：</p>
 <p><img src="/2019/04/15/机器学习误差分析/Snipaste_2019-04-15_10-09-02.jpg" alt></p>
 <h2 id="模型对Bias和Variance的影响"><a href="#模型对Bias和Variance的影响" class="headerlink" title="模型对Bias和Variance的影响"></a>模型对Bias和Variance的影响</h2><p>机器学习的过程就是我们假设一个模型，这个模型可以理解为一个function set，我们的任务就是在这个function set里面找出一个比较符号的function。所以说，对模型的假设是非常关键的一步，假设我们要求的问题只有一个feature，我们最简单的模型可以是</p>
-<p>$$y = b + w\times{x_{cp}}$$</p>
-<p>那么对于多个数据集，我们得出的拟合的曲线可能是如下的。其实这样得出的模型的Bias是比较大，而Variance是比较小的。</p>
+<script type="math/tex; mode=display">y = b + w\times{x_{cp}}</script><p>那么对于多个数据集，我们得出的拟合的曲线可能是如下的。其实这样得出的模型的Bias是比较大，而Variance是比较小的。</p>
 <p><img src="/2019/04/15/机器学习误差分析/Snipaste_2019-04-15_10-25-17.jpg" alt></p>
 <p>而对于复杂的模型，它的Bias是比较小，Variance是比较大的，</p>
 <p><img src="/2019/04/15/机器学习误差分析/Snipaste_2019-04-15_10-26-52.jpg" alt></p>
@@ -960,6 +957,53 @@
   
 
   
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
 
   
 
