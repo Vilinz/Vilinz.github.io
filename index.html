@@ -367,7 +367,7 @@
                 
               
 
-              <time title="创建时间：2019-04-15 09:33:22 / 修改时间：11:00:33" itemprop="dateCreated datePublished" datetime="2019-04-15T09:33:22+08:00">2019-04-15</time>
+              <time title="创建时间：2019-04-15 09:33:22 / 修改时间：11:05:08" itemprop="dateCreated datePublished" datetime="2019-04-15T09:33:22+08:00">2019-04-15</time>
             
 
             
@@ -425,72 +425,16 @@
 
       
         
+          <p>在机器学习当中，误差来着两个方面，一个是Bias，另外一个是Variance。对于一个训练好的模型，清楚地知道误差的来源，我们才知道从那些方面对模型进行改进。</p>
+          <!--noindex-->
           
-            <p>在机器学习当中，误差来着两个方面，一个是Bias，另外一个是Variance。对于一个训练好的模型，清楚地知道误差的来源，我们才知道从哪些方面对模型进行改进。</p>
-<h2 id="均值与方差"><a href="#均值与方差" class="headerlink" title="均值与方差"></a>均值与方差</h2><p>在理解Bias和Variance之前，我们先对均值mean与方差Variance有充分的理解，我们假设真正的均值是$\mu​$，方差是$\sigma^2​$，我们取出一组数${x^1, x^2,…x^n}​$求出均值和方差，我们有以下结论：</p>
-<ul>
-<li><p>对于特定组求得的均值，求得的均值不等于真正的均值，即：$$m = \frac{1}{N}\sum_{n=1}^Nx^n != \mu​$$</p>
-</li>
-<li><p>但对于多个均值求平均，我们得到的均值接近真正的均值，这样我们就说这个值是unbiased的。</p>
-<p><img src="/2019/04/15/机器学习误差分析/Snipaste_2019-04-15_09-49-34.jpg" alt></p>
-<p>用图像直观表示为</p>
-<p><img src="/2019/04/15/机器学习误差分析/Snipaste_2019-04-15_09-54-19.jpg" alt></p>
-</li>
-<li><p>方差的公式为$Var(m) = \frac{\sigma^2}{N}$，可以看到，方差的大小与N的大小有关，经过公式</p>
-<p>$$s^2 = \frac{1}{N}\sum_{n=1}^N(x^n - m)^2$$</p>
-<p>我们对方差求均值，得：</p>
-<p>$$E[s^2] = \frac{N - 1}{N}\mu^2 != \mu^2​$$</p>
-<p>由于得出的数与真正的方差有差距，我们就是这个数值是Biased的，图表示为</p>
-<p><img src="/2019/04/15/机器学习误差分析/Snipaste_2019-04-15_10-05-11.jpg" alt></p>
-</li>
-</ul>
-<h2 id="直观表示"><a href="#直观表示" class="headerlink" title="直观表示"></a>直观表示</h2><p>通过我们上面对均值和方差计算过程的分析，我们基本理解了unbaised和biased的区别，简单地说，Bias就是求出的平均的均值与真正的均值有差别，而Variance就是我们一般理解的方差，就是样本点与中心点的发散程度。用图直观表示就是：</p>
-<p><img src="/2019/04/15/机器学习误差分析/Snipaste_2019-04-15_10-09-02.jpg" alt></p>
-<h2 id="模型对Bias和Variance的影响"><a href="#模型对Bias和Variance的影响" class="headerlink" title="模型对Bias和Variance的影响"></a>模型对Bias和Variance的影响</h2><p>机器学习的过程就是我们假设一个模型，这个模型可以理解为一个function set，我们的任务就是在这个function set里面找出一个比较符号的function。所以说，对模型的假设是非常关键的一步，假设我们要求的问题只有一个feature，我们最简单的模型可以是</p>
-<p>$$y = b + w\times{x_{cp}}$$</p>
-<p>那么对于多个数据集，我们得出的拟合的曲线可能是如下的。其实这样得出的模型的Bias是比较大，而Variance是比较小的。</p>
-<p><img src="/2019/04/15/机器学习误差分析/Snipaste_2019-04-15_10-25-17.jpg" alt></p>
-<p>而对于复杂的模型，它的Bias是比较小，Variance是比较大的，</p>
-<p><img src="/2019/04/15/机器学习误差分析/Snipaste_2019-04-15_10-26-52.jpg" alt></p>
-<p>我们再从本质上分析一下为什么会出现这样的情况，对于简单的模型，由于模型所包含的function set比较小，所以会导致真正要求得的模型根本就没有包含在function set里面，直观表示如下：</p>
-<p><img src="/2019/04/15/机器学习误差分析/Snipaste_2019-04-15_10-29-51.jpg" alt></p>
-<p>对于复杂的模型，其function set包含的范围非常广，它包含了模型，但由于数据集的问题，每次求得的模型都不一样，也就是找不到中心点：</p>
-<p><img src="/2019/04/15/机器学习误差分析/Snipaste_2019-04-15_10-31-26.jpg" alt></p>
-<h2 id="Underfitting和Overfitting"><a href="#Underfitting和Overfitting" class="headerlink" title="Underfitting和Overfitting"></a>Underfitting和Overfitting</h2><p>在机器学习当中，我们遇到的问题无非两种，分别是Underfitting和Overfitting。</p>
-<ul>
-<li><p>Underfitting</p>
-<p>Undefitting对应的就是Large Bias和Small Variance的情况。我们理解就是模型太简单，即使是在训练集当中，模型也没有得到很好的拟合，也就是上面的模型偏离中心点的情况，真正要找的function在根本就没有在可行的function set里面。</p>
-<p><strong>解决办法</strong></p>
-<ul>
-<li>重新考虑我们的模型<ul>
-<li>可以添加更多的feature。</li>
-<li>一个更加复杂的模型。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Overfitting</p>
-<p>Overfitting对应的就是Small Bias和Large Variance的情况。我们理解就是模型可以很好拟合训练集的数据，但是模型在测试集上表现得很差，也就是在训练集没有很好找到适合的模型。</p>
-<p><strong>解决办法</strong></p>
-<ul>
-<li><p>More data</p>
-<p>我们知道，我们实际要找的模型是在function set里面的，但训练集并没有找到实际要找的模型，所以一个简单的想法就是增加训练的数据。</p>
-</li>
-<li><p>Regularization</p>
-<p>加入Regularization的目的是使得模型平滑化，也就是模型太复杂的时候我们可以略微降低模型复杂度，从feature的角度理解就是减少训练集中无用的feature。</p>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="模型的选择"><a href="#模型的选择" class="headerlink" title="模型的选择"></a>模型的选择</h2><p>假设我们已经找到了几个候选的模型，我们要选择一个最后的模型，我们可以选择下面的两种方法来进行选择。</p>
-<h3 id="Cross-Validation"><a href="#Cross-Validation" class="headerlink" title="Cross Validation"></a>Cross Validation</h3><p>使用这种方法，我们将训练数据分为训练集和校验集，用训练集的数据对候选模型训练以后用校验集进行校验，数据在校验集中会得到一个预测错误的比例，我们选择预测错误比例最小的那个模型。</p>
-<p><img src="/2019/04/15/机器学习误差分析/Snipaste_2019-04-15_10-57-40.jpg" alt></p>
-<h3 id="N-fold-Cross-Validation"><a href="#N-fold-Cross-Validation" class="headerlink" title="N-fold Cross Validation"></a>N-fold Cross Validation</h3><p>我们将训练集的数据分成N份，其中N-1份作为训练集，还有1份作为校验集，求出预测错误的比例然后去平均值，选均值最小的模型为我们的模型。</p>
-<p><img src="/2019/04/15/机器学习误差分析/Snipaste_2019-04-15_10-59-26.jpg" alt></p>
-<p>Reference</p>
-<p><a href="http://speech.ee.ntu.edu.tw/~tlkagk/courses/ML_2016/Lecture/Bias%20and%20Variance%20%28v2%29.pdf" target="_blank" rel="noopener">http://speech.ee.ntu.edu.tw/~tlkagk/courses/ML_2016/Lecture/Bias%20and%20Variance%20%28v2%29.pdf</a></p>
-
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/04/15/机器学习误差分析/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
           
+          <!--/noindex-->
         
       
     </div>
