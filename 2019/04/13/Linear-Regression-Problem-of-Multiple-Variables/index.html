@@ -115,7 +115,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/04/13/Linear-Regression-Problem-of-Multiple-Variables/20190317205839580.png">
 <meta property="og:image" content="http://yoursite.com/2019/04/13/Linear-Regression-Problem-of-Multiple-Variables/20190317205903766.png">
 <meta property="og:image" content="http://yoursite.com/2019/04/13/Linear-Regression-Problem-of-Multiple-Variables/20190317211136757.png">
-<meta property="og:updated_time" content="2019-04-13T15:30:25.733Z">
+<meta property="og:updated_time" content="2019-04-15T13:28:08.056Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linear Regression Problem of Multiple Variables">
 <meta name="twitter:description" content="从我们上次介绍的问题进行延申，同样是房子价格的预测，但我们此时的特征从一个变成多个特征，也就是变量从一个变成了多个，例如其他特征有面积，房间个数，楼层，房龄等。我们用一个列向量代表这些特征：">
@@ -379,12 +379,24 @@
                 
               
 
-              <time title="创建时间：2019-04-13 23:16:17 / 修改时间：23:30:25" itemprop="dateCreated datePublished" datetime="2019-04-13T23:16:17+08:00">2019-04-13</time>
+              <time title="创建时间：2019-04-13 23:16:17" itemprop="dateCreated datePublished" datetime="2019-04-13T23:16:17+08:00">2019-04-13</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-04-15 21:28:08" itemprop="dateModified" datetime="2019-04-15T21:28:08+08:00">2019-04-15</time>
               
             
           </span>
@@ -885,6 +897,46 @@
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
   
 
 
