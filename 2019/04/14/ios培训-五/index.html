@@ -108,7 +108,11 @@
 <meta property="og:image" content="http://yoursite.com/2019/04/14/ios培训-五/Snipaste_2019-04-14_13-29-36.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/04/14/ios培训-五/Snipaste_2019-04-14_13-35-49.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/04/14/ios培训-五/Snipaste_2019-04-14_17-31-37.jpg">
-<meta property="og:updated_time" content="2019-04-14T09:42:45.839Z">
+<meta property="og:image" content="http://yoursite.com/2019/04/14/ios培训-五/Snipaste_2019-04-15_13-02-20.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/04/14/ios培训-五/Snipaste_2019-04-15_13-09-17.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/04/14/ios培训-五/Snipaste_2019-04-15_13-15-12.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/04/14/ios培训-五/Snipaste_2019-04-15_13-20-29.jpg">
+<meta property="og:updated_time" content="2019-04-15T07:48:27.867Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ios培训(五)">
 <meta name="twitter:description" content="ios培训第5周实训学号：16340181 姓名：彭伟林  Auto LayoutAuto Layout是一种允许开发人员通过定义元素之间的关系来创建用户界面的方法。 它提供了一个灵活而强大的系统，用于描述视图和UI控件之间的相互关系。 通过使用自动布局，您可以获得令人难以置信的布局控制，具有广泛的自定义功能，并提供完美的界面。如果缺乏Auto Layout，在不同尺寸运行App的时候显示的UI可">
@@ -372,12 +376,24 @@
                 
               
 
-              <time title="创建时间：2019-04-14 13:17:02 / 修改时间：17:42:45" itemprop="dateCreated datePublished" datetime="2019-04-14T13:17:02+08:00">2019-04-14</time>
+              <time title="创建时间：2019-04-14 13:17:02" itemprop="dateCreated datePublished" datetime="2019-04-14T13:17:02+08:00">2019-04-14</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-04-15 15:48:27" itemprop="dateModified" datetime="2019-04-15T15:48:27+08:00">2019-04-15</time>
               
             
           </span>
@@ -422,6 +438,7 @@
 <p>姓名：彭伟林</p>
 <hr>
 <h2 id="Auto-Layout"><a href="#Auto-Layout" class="headerlink" title="Auto Layout"></a>Auto Layout</h2><p>Auto Layout是一种允许开发人员通过定义元素之间的关系来创建用户界面的方法。 它提供了一个灵活而强大的系统，用于描述视图和UI控件之间的相互关系。 通过使用自动布局，您可以获得令人难以置信的布局控制，具有广泛的自定义功能，并提供完美的界面。如果缺乏Auto Layout，在不同尺寸运行App的时候显示的UI可能会不一样。</p>
+<a id="more"></a>
 <p>在用代码实现AutoLayout的时候，有几个需要注意的点</p>
 <ol>
 <li>对于两个同层级view之间的约束关系，添加到它们的父view上。</li>
@@ -459,6 +476,41 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">+ (void)setMoveScrollViewContentOffsetWithCurrentClickView:(UIView *)currentClickview andMoveScrollView:(UIScrollView *)moveScrollView</span><br><span class="line">&#123;</span><br><span class="line">    if(moveScrollView.contentSize.width - moveScrollView.frame.size.width &lt; 0)</span><br><span class="line">        return;</span><br><span class="line">    CGFloat x = currentClickview.frame.origin.x - (moveScrollView.frame.size.width - currentClickview.frame.size.width)/2;</span><br><span class="line">    if(x &gt; (moveScrollView.contentSize.width - moveScrollView.frame.size.width))</span><br><span class="line">    &#123;</span><br><span class="line">        x = moveScrollView.contentSize.width - moveScrollView.frame.size.width;</span><br><span class="line">    &#125;</span><br><span class="line">    else if(x &lt; 0)</span><br><span class="line">    &#123;</span><br><span class="line">        x = 0;</span><br><span class="line">    &#125;</span><br><span class="line">    [moveScrollView setContentOffset:CGPointMake(x, currentClickview.frame.origin.y) animated:YES];</span><br><span class="line">&#125;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
 <p>效果：</p>
 <p><img src="/2019/04/14/ios培训-五/Snipaste_2019-04-14_17-31-37.jpg" alt></p>
+<hr>
+<h2 id="音频的播放和录制"><a href="#音频的播放和录制" class="headerlink" title="音频的播放和录制"></a>音频的播放和录制</h2><p>官方给出的关于AVAudioSession的图如下<br><img src="/2019/04/14/ios培训-五/Snipaste_2019-04-15_13-02-20.jpg" alt></p>
+<p>也就是说麦克风或者摄像头的输入经过AVAudioSession处理以后产生扬声器或者视频输出。</p>
+<p>为了使用AVAudioSession，我们需要激活AVAudioSession，APP启动的时候会自动激活，也可以手动激活，如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">AVAudioSession *session = [AVAudioSession sharedInstance];</span><br><span class="line">[session setCategory:AVAudioSessionCategorySoloAmbient error:nil];</span><br><span class="line">[session setActive:YES error:nil];</span><br></pre></td></tr></table></figure>
+<p><strong>category</strong></p>
+<p>可以看到设置session这里有两个参数，category和options Category，对于category可以选择的功能有</p>
+<p><img src="/2019/04/14/ios培训-五/Snipaste_2019-04-15_13-09-17.jpg" alt></p>
+<ul>
+<li>AVAudioSessionCategoryAmbient，只支持音频播放。这个Category，音频会被静音键和锁屏键静音，并且不会打断其他应用的音频播放。</li>
+<li>AVAudioSessionCategorySoloAmbient，这个是系统默认使用的Category，只支持音频播放。音频会被静音键和锁屏键静音。和AVAudioSessionCategoryAmbient不同的是，这个会打断其他应用的音频播放。</li>
+<li>AVAudioSessionCategoryPlayback，只支持音频播放。你的音频不会被静音键和锁屏键静音。适用于音频是主要功能的APP，像网易云这些音乐app，锁屏后依然可以播放。</li>
+<li>AVAudioSessionCategoryRecord，只支持音频录制。不支持播放。</li>
+<li>AVAudioSessionCategoryPlayAndRecord，支持音频播放和录制。音频的输入和输出不需要同步进行，也可以同步进行。需要音频通话类应用，可以使用这个 Category。</li>
+<li>AVAudioSessionCategoryAudioProcessing，只支持本地音频编解码处理。不支持播放和录制。</li>
+<li>AVAudioSessionCategoryMultiRoute，支持音频播放和录制。允许多条音频流的同步输入和输出。（比如USB连接外部扬声器输出音频，蓝牙耳机同时播放另一路音频这种特殊需求）</li>
+</ul>
+<p>上面介绍的Category定义了七种主场景，实际开发需求中有时候需要对Category进行微调整，我们发现这个接口还有两个参数Mode和Options。</p>
+<p><strong>mode</strong></p>
+<p>mode可以与Category结合组合使用场景。</p>
+<p><img src="/2019/04/14/ios培训-五/Snipaste_2019-04-15_13-15-12.jpg" alt></p>
+<ul>
+<li>AVAudioSessionModeDefault，默认模式,与所有的 Category 兼容</li>
+<li>AVAudioSessionModeVoiceChat，适用于VoIP 类型的应用。只能是 AVAudioSessionCategoryPlayAndRecord Category下。在这个模式系统会自动配置AVAudioSessionCategoryOptionAllowBluetooth 这个选项。系统会自动选择最佳的内置麦克风组合支持语音聊天。</li>
+<li>AVAudioSessionModeVideoChat，用于视频聊天类型应用，只能是 AVAudioSessionCategoryPlayAndRecord Category下。适在这个模式系统会自动配置 AVAudioSessionCategoryOptionAllowBluetooth 和 AVAudioSessionCategoryOptionDefaultToSpeaker 选项。系统会自动选择最佳的内置麦克风组合支持视频聊天。</li>
+<li>AVAudioSessionModeGameChat，适用于游戏类应用。使用 GKVoiceChat 对象的应用会自动设置这个模式和 AVAudioSessionCategoryPlayAndRecord Category。实际参数和AVAudioSessionModeVideoChat一致</li>
+<li>AVAudioSessionModeVideoRecording，适用于使用摄像头采集视频的应用。只能是 AVAudioSessionCategoryPlayAndRecord 和 AVAudioSessionCategoryRecord 这两个 Category下。这个模式搭配 AVCaptureSession API 结合来用可以更好地控制音视频的输入输出路径。(例如，设置 automaticallyConfiguresApplicationAudioSession 属性，系统会自动选择最佳输出路径。</li>
+<li>AVAudioSessionModeMeasurement，最小化系统。只用于 AVAudioSessionCategoryPlayAndRecord、AVAudioSessionCategoryRecord、AVAudioSessionCategoryPlayback 这几种 Category。</li>
+<li>AVAudioSessionModeMoviePlayback，适用于播放视频的应用。只用于 AVAudioSessionCategoryPlayback 这个Category。</li>
+</ul>
+<p><strong>options</strong></p>
+<p>除了category和mode结合进行调节以外，还可以用option这个参数进行微调。</p>
+<p><img src="/2019/04/14/ios培训-五/Snipaste_2019-04-15_13-20-29.jpg" alt></p>
+<hr>
+<h2 id="实验感想"><a href="#实验感想" class="headerlink" title="实验感想"></a>实验感想</h2><p>AutoLayout是一个与安卓约束布局非常相似的一个布局方式，不过AutoLayout表现的方式不是以xml的方式表现出来，而是以OC的形式表现，将约束一条一条地加在组件上，强调的是组件与组件之间的关系，所以整个布局方式熟悉起来也没有什么压力，这周每组初步选定自己的题目，所以根据自己选定的题目会有针对地对需要用到的知识进行熟悉，例如scrollView。</p>
 
       
     </div>
@@ -714,7 +766,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ios培训第5周实训"><span class="nav-number">1.</span> <span class="nav-text">ios培训第5周实训</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Auto-Layout"><span class="nav-number">1.1.</span> <span class="nav-text">Auto Layout</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#语法"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#例子"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">例子</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#scrollView"><span class="nav-number">1.2.</span> <span class="nav-text">scrollView</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ios培训第5周实训"><span class="nav-number">1.</span> <span class="nav-text">ios培训第5周实训</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Auto-Layout"><span class="nav-number">1.1.</span> <span class="nav-text">Auto Layout</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#语法"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#例子"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">例子</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#scrollView"><span class="nav-number">1.2.</span> <span class="nav-text">scrollView</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#音频的播放和录制"><span class="nav-number">1.3.</span> <span class="nav-text">音频的播放和录制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验感想"><span class="nav-number">1.4.</span> <span class="nav-text">实验感想</span></a></li></ol></div>
             
 
           </div>
