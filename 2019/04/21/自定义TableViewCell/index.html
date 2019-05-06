@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="baidu-site-verification" content="3fd5Fg5BYs">
+<meta name="google-site-verification" content="OBQL--jbCYO_iOcXLL_MNOqdyBJhYO6UKBp9zM4LteE">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="学号：16340181 姓名：彭伟林  ios培训第6周自定义TableViewCell在实际的引用当中，TableView这个控件应用得很多，并且很多时候我们使用的TableView的TableViewCell的显示的风格是不一样的，也就是同一个TableView的TableViewCell有不同的风格。">
+<meta name="keywords" content="ios">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自定义TableViewCell">
+<meta property="og:url" content="http://yoursite.com/2019/04/21/自定义TableViewCell/index.html">
+<meta property="og:site_name" content="Vilin">
+<meta property="og:description" content="学号：16340181 姓名：彭伟林  ios培训第6周自定义TableViewCell在实际的引用当中，TableView这个控件应用得很多，并且很多时候我们使用的TableView的TableViewCell的显示的风格是不一样的，也就是同一个TableView的TableViewCell有不同的风格。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2019/04/21/自定义TableViewCell/Snipaste_2019-04-22_00-29-29.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/04/21/自定义TableViewCell/Snipaste_2019-04-22_00-30-19.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/04/21/自定义TableViewCell/Snipaste_2019-04-22_11-16-35.jpg">
+<meta property="og:updated_time" content="2019-04-22T04:43:38.674Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="自定义TableViewCell">
+<meta name="twitter:description" content="学号：16340181 姓名：彭伟林  ios培训第6周自定义TableViewCell在实际的引用当中，TableView这个控件应用得很多，并且很多时候我们使用的TableView的TableViewCell的显示的风格是不一样的，也就是同一个TableView的TableViewCell有不同的风格。">
+<meta name="twitter:image" content="http://yoursite.com/2019/04/21/自定义TableViewCell/Snipaste_2019-04-22_00-29-29.jpg">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2019/04/21/自定义TableViewCell/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>自定义TableViewCell | Vilin</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Vilin</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/21/自定义TableViewCell/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Vilin">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/my.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vilin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">自定义TableViewCell
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-21 22:31:11" itemprop="dateCreated datePublished" datetime="2019-04-21T22:31:11+08:00">2019-04-21</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-04-22 12:43:38" itemprop="dateModified" datetime="2019-04-22T12:43:38+08:00">2019-04-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/客户端开发/" itemprop="url" rel="index"><span itemprop="name">客户端开发</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>学号：16340181</strong></p>
+<p><strong>姓名：彭伟林</strong></p>
+<hr>
+<h2 id="ios培训第6周"><a href="#ios培训第6周" class="headerlink" title="ios培训第6周"></a>ios培训第6周</h2><h4 id="自定义TableViewCell"><a href="#自定义TableViewCell" class="headerlink" title="自定义TableViewCell"></a>自定义TableViewCell</h4><p>在实际的引用当中，TableView这个控件应用得很多，并且很多时候我们使用的TableView的TableViewCell的显示的风格是不一样的，也就是同一个TableView的TableViewCell有不同的风格。</p>
+<a id="more"></a>
+<p>经过初步学习，我认为实现这样的效果可以有两种解决的方案：</p>
+<ul>
+<li>使用继承的方法解决，即通过TableViewCell继承出不同的子类，而每一种子类对应与一种TableViewCell的样式，显示的时候根据数据传进来的type来选择要使用的样式。</li>
+<li>首先继承一个TableViewCell的子类，子类包含了我们TableViewCell需要的所有组件，当我们的组件不需要显示的时候我们就将其隐藏起来。</li>
+</ul>
+<p>我在这里实现一下第一种方法实现的私人定制。</p>
+<p>项目结构如下：</p>
+<p><img src="/2019/04/21/自定义TableViewCell/Snipaste_2019-04-22_00-29-29.jpg" alt></p>
+<p>效果图如下</p>
+<p><img src="/2019/04/21/自定义TableViewCell/Snipaste_2019-04-22_00-30-19.jpg" alt></p>
+<p><strong>定义Item种类</strong></p>
+<p>我们这里选择定义两种不同的TableViewCell，我们需要一个类来指示不同的TableViewCell。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line"></span><br><span class="line">NS_ASSUME_NONNULL_BEGIN</span><br><span class="line"></span><br><span class="line">typedef enum : NSUInteger &#123;</span><br><span class="line">    typeA,</span><br><span class="line">    typeB,</span><br><span class="line">&#125;TableItemType;</span><br><span class="line"></span><br><span class="line">@interface TableViewItem : NSObject</span><br><span class="line">@property (nonatomic, assign) TableItemType type;</span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">NS_ASSUME_NONNULL_END</span><br></pre></td></tr></table></figure>
+<p><strong>定义父类</strong></p>
+<p>首先我们定义TableViewCell子类的一个公共父类，所有的TableViewCell的子类均基础这个父类。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">//.h</span><br><span class="line">#import &lt;UIKit/UIKit.h&gt;</span><br><span class="line">#import &quot;TableViewItem.h&quot;</span><br><span class="line"></span><br><span class="line">NS_ASSUME_NONNULL_BEGIN</span><br><span class="line"></span><br><span class="line">@interface BaseCell : UITableViewCell</span><br><span class="line">@property (nonatomic, strong) TableViewItem *item;</span><br><span class="line"></span><br><span class="line">+ (CGFloat)tableView:(UITableView*)tableView rowHeightForObject:(TableViewItem *)object;</span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">NS_ASSUME_NONNULL_END</span><br><span class="line"></span><br><span class="line">//.m</span><br><span class="line">#import &quot;BaseCell.h&quot;</span><br><span class="line"></span><br><span class="line">@implementation BaseCell</span><br><span class="line">    </span><br><span class="line">+ (CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(TableViewItem *)object&#123;</span><br><span class="line">    return 44.f;</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line">- (void)setItem:(TableViewItem *)item&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<p><strong>第一个子类</strong></p>
+<p>第一个子类的风格是一个ILabel和三个UIImageView组成，其中里面的布局采用的是AutoLayout，需要在子类实现一个初始化的函数initWithStyle。由于布局代码比较多，这里只列出UILabelView和UIImageView1两个的布局，其中UIImageView1的布局是以UILabelView布局为基准的，同时为了使得组件可以自适应屏幕，我们先获取了屏幕的宽度和高度信息，然后根据这个信息来对组件进行布局，例如三张图片显示的位置是平均的，这样显示起来更加美观一些。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#import &quot;BaseCell.h&quot;</span><br><span class="line"></span><br><span class="line">NS_ASSUME_NONNULL_BEGIN</span><br><span class="line"></span><br><span class="line">@interface TypeACellTableViewCell : BaseCell</span><br><span class="line">@property (nonatomic,strong) UIImageView *imageView1;</span><br><span class="line">@property (nonatomic,strong) UIImageView *imageView2;</span><br><span class="line">@property (nonatomic,strong) UIImageView *imageView3;</span><br><span class="line">@property (nonatomic,strong) UILabel *labelView;</span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">NS_ASSUME_NONNULL_END</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier&#123;</span><br><span class="line">    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) &#123;</span><br><span class="line">        </span><br><span class="line">        CGRect screenRect = [[UIScreen mainScreen] bounds];</span><br><span class="line">        CGSize screenSize = screenRect.size;</span><br><span class="line">        CGFloat scale = [UIScreen mainScreen].scale;</span><br><span class="line">        CGFloat screenX = screenSize.width * scale;</span><br><span class="line">        CGFloat screenY = screenSize.height * scale;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        self.labelView = [[UILabel alloc] init];</span><br><span class="line">        [self addSubview:self.labelView];</span><br><span class="line">        self.labelView.translatesAutoresizingMaskIntoConstraints = NO;</span><br><span class="line">        [self.labelView setText:@&quot;MyCell&quot;];</span><br><span class="line">        // 添加k宽度约束:100</span><br><span class="line">        NSLayoutConstraint *widthConstraintLabel = [NSLayoutConstraint constraintWithItem:self.labelView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0.0 constant:screenSize.width-40];</span><br><span class="line">        </span><br><span class="line">        // 添加高度约束:20</span><br><span class="line">        NSLayoutConstraint *heightConstraintLabel = [NSLayoutConstraint constraintWithItem:self.labelView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0.0 constant:20];</span><br><span class="line">        </span><br><span class="line">        NSLayoutConstraint * leftConstraintLabel = [NSLayoutConstraint constraintWithItem:self.labelView attribute:NSLayoutAttributeLeftMargin relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeft multiplier:1.0f constant:20.0];</span><br><span class="line">        </span><br><span class="line">        NSLayoutConstraint * topConstraintLabel = [NSLayoutConstraint constraintWithItem:self.labelView attribute:NSLayoutAttributeTopMargin relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop multiplier:1.0f constant:20.0];</span><br><span class="line">        </span><br><span class="line">        [self.labelView addConstraint:widthConstraintLabel];</span><br><span class="line">        [self.labelView addConstraint:heightConstraintLabel];</span><br><span class="line">        [self addConstraint:leftConstraintLabel];</span><br><span class="line">        [self addConstraint:topConstraintLabel];</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        self.imageView1 = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@&quot;p1.png&quot;]];</span><br><span class="line">        [self addSubview:self.imageView1];</span><br><span class="line">        self.imageView1.translatesAutoresizingMaskIntoConstraints = NO;</span><br><span class="line">        // 添加宽度约束:100</span><br><span class="line">        NSLayoutConstraint *widthConstraint = [NSLayoutConstraint constraintWithItem:self.imageView1 attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0.0 constant:((screenSize.width - 60)/3)];</span><br><span class="line">        </span><br><span class="line">        // 添加高度约束:100</span><br><span class="line">        NSLayoutConstraint *heightConstraint = [NSLayoutConstraint constraintWithItem:self.imageView1 attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0.0 constant:100];</span><br><span class="line">        </span><br><span class="line">        NSLayoutConstraint * leftConstraint = [NSLayoutConstraint constraintWithItem:self.imageView1 attribute:NSLayoutAttributeLeftMargin relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeft multiplier:1.0f constant:20];</span><br><span class="line">        </span><br><span class="line">        NSLayoutConstraint * topConstraint = [NSLayoutConstraint constraintWithItem:self.imageView1 attribute:NSLayoutAttributeTopMargin relatedBy:NSLayoutRelationEqual toItem:self.labelView attribute:NSLayoutAttributeBottom multiplier:1.0f constant:10.0];</span><br><span class="line">        [self.imageView1 addConstraint:widthConstraint];</span><br><span class="line">        [self.imageView1 addConstraint:heightConstraint];</span><br><span class="line">        [self addConstraint:leftConstraint];</span><br><span class="line">        [self addConstraint:topConstraint];</span><br><span class="line">        ...</span><br><span class="line">        //省略部分布局代码</span><br></pre></td></tr></table></figure>
+<p>}</p>
+<p><strong>第二个子类</strong></p>
+<p>第二个子类比较简单，里面只有一个UILabelView。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#import &quot;TypeBCellTableViewCell.h&quot;</span><br><span class="line"></span><br><span class="line">@implementation TypeBCellTableViewCell</span><br><span class="line"></span><br><span class="line">- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier&#123;</span><br><span class="line">    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) &#123;</span><br><span class="line">        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(10, 10, 200, 60)];</span><br><span class="line">        [label setText:@&quot;Model2&quot;];</span><br><span class="line">        [self addSubview:label];</span><br><span class="line">    &#125;</span><br><span class="line">    return self;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">+ (CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(TableViewItem *)object&#123;</span><br><span class="line">    return 60.f;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<p><strong>重写数据源方法</strong></p>
+<p>为不同的数据选择不同的TableViewCell进行渲染，我们需要重写DataSource这个类，其中关键的一步就是获取传进来的Cell里面的type属性选择不同的TableViewCell进行显示。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">- (Class)cellClassAtIndexPath:(NSIndexPath *)indexPath&#123;</span><br><span class="line">    TableViewItem *item = [self itemAtIndexPath:indexPath];</span><br><span class="line">    switch (item.type) &#123;</span><br><span class="line">        case typeA:&#123;</span><br><span class="line">            return [TypeACellTableViewCell class];</span><br><span class="line">        &#125;</span><br><span class="line">            break;</span><br><span class="line">        case typeB:&#123;</span><br><span class="line">            return [TypeBCellTableViewCell class];</span><br><span class="line">        &#125;</span><br><span class="line">            break;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>ViewController</strong></p>
+<p>在ViewController中，传进去渲染的是一个item数组，而DataSource根据这个item的type类型进行渲染。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">#import &quot;ViewController.h&quot;</span><br><span class="line"></span><br><span class="line">@interface ViewController () &lt;UITableViewDelegate&gt;</span><br><span class="line">@property (nonatomic,strong) UITableView *tableview;</span><br><span class="line">@property (nonatomic, strong) TableViewDataSource *datasource;</span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">@implementation ViewController</span><br><span class="line"></span><br><span class="line">- (void)viewDidLoad &#123;</span><br><span class="line">    [super viewDidLoad];</span><br><span class="line">    // Do any additional setup after loading the view, typically from a nib.</span><br><span class="line">    </span><br><span class="line">    [self.view addSubview:self.tableview];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (NSArray *)items&#123;</span><br><span class="line">    TableViewItem *itemA = [TableViewItem new];</span><br><span class="line">    itemA.type = typeA;</span><br><span class="line">    TableViewItem *itemB = [TableViewItem new];</span><br><span class="line">    itemB.type = typeB;</span><br><span class="line">    NSMutableArray *mArray = [NSMutableArray new];</span><br><span class="line">    for (int i = 0; i &lt; 20; i++) &#123;</span><br><span class="line">        [mArray addObject:itemA];</span><br><span class="line">        [mArray addObject:itemB];</span><br><span class="line">        [mArray addObject:itemB];</span><br><span class="line">    &#125;</span><br><span class="line">    return [NSArray arrayWithArray:mArray];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (UITableView *)tableview&#123;</span><br><span class="line">    if (!_tableview) &#123;</span><br><span class="line">        _tableview = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];</span><br><span class="line">        _tableview.delegate = self;</span><br><span class="line">        _tableview.dataSource = self.datasource;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    return _tableview;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (TableViewDataSource *)datasource&#123;</span><br><span class="line">    if (!_datasource) &#123;</span><br><span class="line">        _datasource = [TableViewDataSource new];</span><br><span class="line">        _datasource.itemsArray = [self items];</span><br><span class="line">    &#125;</span><br><span class="line">    return _datasource;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath&#123;</span><br><span class="line">    Class cls = [self.datasource cellClassAtIndexPath:indexPath];</span><br><span class="line">    return [cls tableView:tableView rowHeightForObject:self.datasource.itemsArray[indexPath.row]];</span><br><span class="line">&#125;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="服务端编程"><a href="#服务端编程" class="headerlink" title="服务端编程"></a>服务端编程</h2><p><strong>服务端要解决的问题</strong></p>
+<p>服务端在编程任务当中解决主要是数据和计算两个方面的内容。</p>
+<ul>
+<li>数据<ul>
+<li>存储，包括用户的资料，商品，文章，图片，视频等等，</li>
+<li>传输，包括消息传递，转账，上传，下载等等。</li>
+</ul>
+</li>
+<li>计算<ul>
+<li>数据计算，包括地图导航，搜索，信息流推荐等等。</li>
+<li>提供算力，包括语音合成，语音实时转写，图像内容识别等等。</li>
+</ul>
+</li>
+</ul>
+<p><strong>技术栈</strong></p>
+<p><img src="/2019/04/21/自定义TableViewCell/Snipaste_2019-04-22_11-16-35.jpg" alt></p>
+<p>分析：从纵向分析，整个的技术栈是按照接入层，逻辑层和存储层从上到下进行排列的，每一层都有自己的功能。</p>
+<ul>
+<li><p>接入层</p>
+<p>接入层通常指网络中直接面向用户连接或访问的部分，通常要维护与客户端之间的网络连接，管理客户端的网络状态；在接收客户端请求的时候，将请求转发到业务层；除此之外，还需要加入负载均衡等优化策略。</p>
+</li>
+<li><p>逻辑层</p>
+<p>逻辑层一般是根据业务逻辑的需要来处理用户的请求。设计的模式一般有单体式服务和微服务两种。单体式服务是指将所有的业务逻辑都集中在一个代码仓库当中，集中在一个进程里，这样的架构耦合程度非常高。当系统比较小的时候，维护起来简单，但当系统变负责的时候，维护的难度成指数增长。微服务是业务逻辑按功能或者类型作划分的，分别部署多个服务，使用网络通信交换数据，由于对系统进行解耦，所以使得功能的划分比较准确，进行团队协作更加容易，并且对于故障的处理比较合理，但是由于系统耦合程度低，需要更加好的基础框架，同时对业务流程设计也提出了更高的要求。</p>
+</li>
+<li><p>存储层</p>
+<p>存储层顾名思义是指用数据库进行数据的存储，常用的数据库有SQL类关系型数据库，NoSQL非关系型数据库。</p>
+</li>
+</ul>
+<hr>
+<h2 id="实验感想"><a href="#实验感想" class="headerlink" title="实验感想"></a>实验感想</h2><p>这周主要讲了服务端开发的整体架构，大体上向我们介绍了服务端开发需要掌握哪些知识，拥有哪方面的技能，并且针对项目向我们介绍了完成项目的服务端开发需要注意哪些方面的问题，消息的转发的逻辑，新消息的存储转发机制等等，初步为我们构建了服务端的框架；除了课上学习的知识以外，自己也在筹备着项目的事情，首先为了进一步属性使用TableView，我自己自定义了一个TableViewCell，使得同一个TableView能够显示不同的样式，自己想出了两种实现的方案，目前只是实现了第一种想法，第二种想法需要自己去学习更多的知识才能实现起来。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ios/" rel="tag"># ios</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/15/机器学习误差分析/" rel="next" title="机器学习误差分析">
+                <i class="fa fa-chevron-left"></i> 机器学习误差分析
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/06/swsad-hw4/" rel="prev" title="swsad_hw4">
+                swsad_hw4 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/my.jpg" alt="Vilin">
+            
+              <p class="site-author-name" itemprop="name">Vilin</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/vilinz" title="GitHub &rarr; https://github.com/vilinz" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="/1622070923@qq.com" title="E-Mail &rarr; 1622070923@qq.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ios培训第6周"><span class="nav-number">1.</span> <span class="nav-text">ios培训第6周</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义TableViewCell"><span class="nav-number">1.0.1.</span> <span class="nav-text">自定义TableViewCell</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#服务端编程"><span class="nav-number">2.</span> <span class="nav-text">服务端编程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验感想"><span class="nav-number">3.</span> <span class="nav-text">实验感想</span></a></li></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Vilin</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.0.1</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.1"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
