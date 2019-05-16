@@ -116,7 +116,9 @@
 <meta property="og:image" content="https://i.loli.net/2019/05/06/5cd03d4537f68.jpg">
 <meta property="og:image" content="https://i.loli.net/2019/05/06/5cd03d4653149.jpg">
 <meta property="og:image" content="https://i.loli.net/2019/05/06/5cd03d4ac4d03.jpg">
-<meta property="og:updated_time" content="2019-05-16T02:35:07.696Z">
+<meta property="og:image" content="http://yoursite.com/2019/05/06/swsad-hw4/Snipaste_2019-05-16_23-58-05.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/05/06/swsad-hw4/Snipaste_2019-05-17_00-13-27.jpg">
+<meta property="og:updated_time" content="2019-05-16T16:42:10.957Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="swsad_hw4">
 <meta name="twitter:description" content="系统分析与设计第四次作业 简答题 用例的概念 是软件工程或系统工程中对系统如何反应外界请求的描述，是一种通过用户的使用场景来获取需求的技术。一个用例定义了外部执行者和被考虑的系统之间的交互来实现一个业务目标。  用例和场景的关系？什么是主场景或 happy path？">
@@ -397,7 +399,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-05-16 10:35:07" itemprop="dateModified" datetime="2019-05-16T10:35:07+08:00">2019-05-16</time>
+                <time title="修改时间：2019-05-17 00:42:10" itemprop="dateModified" datetime="2019-05-17T00:42:10+08:00">2019-05-17</time>
               
             
           </span>
@@ -561,20 +563,41 @@
 </li>
 </ol>
 <h2 id="建模练习题"><a href="#建模练习题" class="headerlink" title="建模练习题"></a>建模练习题</h2><ol>
-<li>选择2-3个你熟悉的类似业务的在线服务系统（或移动 APP），如定旅馆（携程、去哪儿等）、定电影票、背单词APP等，分别绘制它们用例图。并满足以下要求：<ul>
+<li><p>选择2-3个你熟悉的类似业务的在线服务系统（或移动 APP），如定旅馆（携程、去哪儿等）、定电影票、背单词APP等，分别绘制它们用例图。并满足以下要求：</p>
+<ul>
 <li>请使用用户的视角，描述用户目标或系统提供的服务</li>
 <li>粒度达到子用例级别，并用 include 和 exclude 关联它们</li>
 <li>请用色彩标注出你认为创新（区别于竞争对手的）用例或子用例</li>
 <li>尽可能识别外部系统和服务</li>
 </ul>
+<p>猫眼电影</p>
+<p><img src="/2019/05/06/swsad-hw4/Snipaste_2019-05-16_23-58-05.jpg" alt></p>
+<p>携程订酒店</p>
+<p><img src="/2019/05/06/swsad-hw4/Snipaste_2019-05-17_00-13-27.jpg" alt></p>
 </li>
-<li>然后，回答下列问题：<ol>
-<li>为什么相似系统的用例图是相似的？</li>
-<li>如果是定旅馆业务，请对比 Asg_RH 用例图，简述如何利用不同时代、不同地区产品的用例图，展现、突出创新业务和技术</li>
-<li>如何利用用例图定位创新思路（业务创新、或技术创新、或商业模式创新）在系统中的作用</li>
-<li>请使用 SCRUM 方法，选择一个用例图，编制某定旅馆开发的需求（backlog）开发计划表</li>
-<li>根据任务4，参考 <a href="https://www.ibm.com/developerworks/cn/rational/edge/09/mar09/collaris_dekker/index.html" target="_blank" rel="noopener">使用用例点估算软件成本</a>，给出项目用例点的估算</li>
-</ol>
+<li><p>然后，回答下列问题：</p>
+<ul>
+<li><p>为什么相似系统的用例图是相似的？</p>
+<p>因为相似系统的参与者、用例、边界以及他们之间的关系都是相似的，所以画出的用例图也都是相似的。</p>
+</li>
+<li><p>如果是定旅馆业务，请对比 Asg_RH 用例图，简述如何利用不同时代、不同地区产品的用例图，展现、突出创新业务和技术。</p>
+<p>不同时代、不同地区用户习惯、需求法规以及其他社会环境的不同，使得技术和业务需求方面有所差距，这些差异会体现在用例图中，可以用不同的色彩标注他们来突出创新之处。</p>
+</li>
+<li><p>如何利用用例图定位创新思路（业务创新、或技术创新、或商业模式创新）在系统中的作用。</p>
+<p>用例在系统中的重要性可以通过观察用例在用例图中的位置来确定，如果是用户级别的系统，那么其是比较重要的，一般父用例的重要性要比子用例要重要，必须实现的用例比可选的用例要重要。</p>
+</li>
+<li><p>请使用 SCRUM 方法，选择一个用例图，编制某定旅馆开发的需求（backlog）开发计划表。</p>
+<p>| ID   | Name             | Imp  | Est  | How To Demo                     |<br>| —— | ———————— | —— | —— | ———————————————- |<br>| 1    | find hotel       | 4    | 4    | find hotel by different ways    |<br>| 2    | make reservetion | 8    | 7    | choose hotel and confirm        |<br>| 3    | manage basket    | 5    | 4    | manage the basket               |<br>| 4    | pay              | 6    | 6    | supported by third part systems |<br>| 5    | login            | 3    | 2    | use different ways to login     |</p>
+</li>
+<li><p>根据任务4，参考 <a href="https://www.ibm.com/developerworks/cn/rational/edge/09/mar09/collaris_dekker/index.html" target="_blank" rel="noopener">使用用例点估算软件成本</a>，给出项目用例点的估算。</p>
+<ul>
+<li>简单用例：1到3个事务，权重=5</li>
+<li>一般用例：4到7个事务，权重=10</li>
+<li>复杂用例：多于7个事务，权重=15</li>
+</ul>
+<p>| 用例                | 事务 | 计算 | 原因 | uc权重 |<br>| —————————- | —— | —— | —— | ——— |<br>| 1. find hotel       | 4    | 4    |      | 一般   |<br>| 2. make reservetion | 3    | 3    |      | 简单   |<br>| 3. manage basket    | 1    | 1    |      | 简单   |<br>| 4. pay              | 4    | 2    |      | 简单   |<br>| 5. login            | 3    | 2    |      | 简单   |</p>
+</li>
+</ul>
 </li>
 </ol>
 
