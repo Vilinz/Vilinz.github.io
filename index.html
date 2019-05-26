@@ -535,12 +535,24 @@
                 
               
 
-              <time title="创建时间：2019-05-20 15:23:46 / 修改时间：15:26:03" itemprop="dateCreated datePublished" datetime="2019-05-20T15:23:46+08:00">2019-05-20</time>
+              <time title="创建时间：2019-05-20 15:23:46" itemprop="dateCreated datePublished" datetime="2019-05-20T15:23:46+08:00">2019-05-20</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-05-26 14:27:18" itemprop="dateModified" datetime="2019-05-26T14:27:18+08:00">2019-05-26</time>
               
             
           </span>
@@ -596,20 +608,39 @@
           
             <p>使用 <strong>UMLet</strong> 建模：</p>
 <ol>
-<li><p>根据订旅馆建模文档，Asg-RH.pdf：</p>
+<li><p>根据订旅馆建模文档，<a href="https://sysu-swsad.github.io/swad-guide/material/Asg_RH.pdf" target="_blank" rel="noopener">Asg-RH.pdf</a>：</p>
 <ul>
-<li>绘制用例图模型（到子用例）</li>
-<li>给出 make reservation 用例的活动图</li>
+<li><p>绘制用例图模型（到子用例）</p>
+<p><img src="/2019/05/20/swsad-hw5/Snipaste_2019-05-20_19-51-02.jpg" alt></p>
+</li>
+<li><p>给出 make reservation 用例的活动图</p>
+<p><img src="/2019/05/20/swsad-hw5/Snipaste_2019-05-20_20-00-51.jpg" alt></p>
+</li>
 </ul>
 </li>
 <li><p>根据课程练习“投递员使用投递箱给收件人快递包裹”的业务场景</p>
 <ul>
-<li>分别用多泳道图建模三个场景的业务过程</li>
-<li>根据上述流程，给出快递柜系统最终的用例图模型<ul>
+<li><p>分别用多泳道图建模三个场景的业务过程</p>
+<ul>
+<li><p>x科技公司发明了投递柜，它们自建了投递柜以及远程控制系统。注册的投递员在推广期免费使用投递柜。由于缺乏资源，仅能使用y移动平台向客户发送短信通知。</p>
+<p><img src="/2019/05/20/swsad-hw5/Snipaste_2019-05-26_14-16-41.jpg" alt></p>
+</li>
+<li><p>随着产品推广，x公司与各大快递z公司达成协议。x公司在快递柜上添加了二维码扫描装置，z公司的快递员不仅可在快递柜上登陆（由z公司提供认证服务），且可扫描快递单号，投递入柜后自动由z公司发短信给客户。客户取件后，自动发送给z公司投递完成。</p>
+<p><img src="/2019/05/20/swsad-hw5/Snipaste_2019-05-26_14-17-02.jpg" alt></p>
+</li>
+<li><p>x公司进一步优化服务，开发了微信小程序实现扫码取快递。如果用户关注了该公司公众号，直接通过过公众号推送给用户取件码等信息。不再发送短信。</p>
+<p><img src="/2019/05/20/swsad-hw5/Snipaste_2019-05-26_14-17-13.jpg" alt></p>
+</li>
+</ul>
+<p><strong>备注：</strong> 关于z公司投递员认证过程。一般采用用户登陆z公司，z公司用私钥签名的token（二维码包含公司名，用户ID，有效期等）；x公司扫描该二维码，用对应公钥验证该token。</p>
+</li>
+<li><p>根据上述流程，给出快递柜系统最终的用例图模型</p>
+<ul>
 <li>用正常色彩表示第一个业务流程反映的用例</li>
 <li>用绿色背景表述第二个业务场景添加或修改的用例，以及支持 Actor</li>
 <li>用黄色背景表述第三个业务场景添加或修改的用例，以及支持 Actor</li>
 </ul>
+<p><img src="/2019/05/20/swsad-hw5/Snipaste_2019-05-26_14-17-26.jpg" alt></p>
 </li>
 </ul>
 </li>
